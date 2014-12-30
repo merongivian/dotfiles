@@ -1,0 +1,12 @@
+[user]
+	name = Jose Añasco
+	email = joseanasco1@gmail.com
+[alias]
+	co = checkout
+	lol = log --pretty=format:'%h %s [%an]' --graph
+	cool = log --pretty=format: '%h %s [%an]' --graph
+	st = status
+	br = branch
+	ci = commit
+[color]
+	ui = true
