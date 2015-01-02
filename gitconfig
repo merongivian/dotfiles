@@ -10,3 +10,5 @@
 	ci = commit
 [color]
 	ui = true
+[core]
+	excludesfile = ~/.gitignore
