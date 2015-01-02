@@ -1,2 +1,9 @@
+# folders
+
 /.rdoc*
+/doc
+
+# files
+
 *.swp
+tags
