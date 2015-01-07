@@ -102,6 +102,7 @@ Plugin 'skalnik/vim-vroom'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
