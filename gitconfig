@@ -12,3 +12,5 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
+[credential]
+	helper = store
