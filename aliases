@@ -1,0 +1,8 @@
+alias gad='git add'
+alias gada='git add . && git status'
+alias gul='git pull'
+alias glol='git lol'
+alias gdf='git diff'
+alias gdc='git diff --cached'
+alias gcom='git commit -m'
+
