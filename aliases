@@ -5,4 +5,7 @@ alias glol='git lol'
 alias gdf='git diff'
 alias gdc='git diff --cached'
 alias gcom='git commit -m'
+alias gam='git commit --amend'
+alias gshw='git show'
+alias lcat='lolcat'
 
