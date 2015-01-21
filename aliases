@@ -1,5 +1,5 @@
 alias gunstage='git reset HEAD'
-alias gct='git co'
+alias gco='git co'
 alias gad='git add'
 alias gada='git add . && git status'
 alias gul='git pull'
