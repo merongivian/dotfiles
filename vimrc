@@ -104,6 +104,7 @@ Plugin 'rking/ag.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-endwise'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
