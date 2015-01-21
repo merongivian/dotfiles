@@ -4,6 +4,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'rubylint']
 
+let g:NumberToggleTrigger="<C-b>"
+
 nmap <leader>z :NERDTreeToggle<CR>
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
@@ -39,7 +41,7 @@ set hidden
 nmap <C-m> :b#<CR>
 nmap [b :bp<CR>
 nmap ]b :bn<CR>
-nmap bx :NERDTreeClose<CR> :TagbarClose<CR> :bdelete<CR>
+nmap zx :NERDTreeClose<CR> :TagbarClose<CR> :bdelete<CR>
 
 "" insert motion
 nmap <C-a> I
