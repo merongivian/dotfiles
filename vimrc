@@ -12,6 +12,8 @@ nmap <leader>nh :noh<CR>
 
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 
+set noswapfile
+
 set hlsearch
 set incsearch
 set laststatus=2
