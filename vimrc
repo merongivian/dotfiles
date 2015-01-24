@@ -102,6 +102,9 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 call plug#end()
 
 colorscheme herald
