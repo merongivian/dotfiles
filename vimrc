@@ -81,38 +81,28 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'msanders/snipmate.vim'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-surround'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'majutsushi/tagbar'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'skalnik/vim-vroom'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rking/ag.vim'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-endwise'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#begin()
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'msanders/snipmate.vim'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'flazz/vim-colorschemes'
+Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
+Plug 'airblade/vim-gitgutter'
+Plug 'rking/ag.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+call plug#end()
 
 colorscheme herald
 "colorscheme jelleybeans
