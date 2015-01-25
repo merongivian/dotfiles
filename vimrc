@@ -105,6 +105,7 @@ Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
+Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 call plug#end()
 
 colorscheme herald
