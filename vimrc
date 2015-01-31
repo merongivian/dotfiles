@@ -10,6 +10,11 @@ nmap <leader>z :NERDTreeToggle<CR>
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
 
+nmap <silent> <leader>r :TestNearest<CR>
+nmap <silent> <leader>R :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 
 set noswapfile
@@ -95,7 +100,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'flazz/vim-colorschemes'
-Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -106,6 +110,7 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
+Plug 'janko-m/vim-test'
 call plug#end()
 
 colorscheme herald
