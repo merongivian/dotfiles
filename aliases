@@ -11,6 +11,9 @@ alias gcom_all='git add . && git commit -m'
 alias gam='git commit --amend'
 alias gshw='git show'
 
+alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
+alias open_merged='vim `git show --pretty="format:" --name-only | uniq`'
+
 alias be='bundle exec'
 
 alias lcat='lolcat'
