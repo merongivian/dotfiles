@@ -7,4 +7,5 @@
 
 *.swp
 .ruby-version
+.DS_Store
 tags
