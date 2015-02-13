@@ -6,6 +6,9 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'rubylint']
 
 let g:NumberToggleTrigger="<C-b>"
 
+let g:indentLine_char = '│'
+let g:indentLine_color_term = 239
+
 nmap <leader>z :NERDTreeToggle<CR>
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
@@ -111,6 +114,7 @@ Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'janko-m/vim-test'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 colorscheme herald
