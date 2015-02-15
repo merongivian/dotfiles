@@ -9,7 +9,11 @@ let g:NumberToggleTrigger="<C-b>"
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 
-nmap <leader>z :NERDTreeToggle<CR>
+let NERDTreeHijackNetrw=1
+
+map <silent> <leader>d :execute 'e '. getcwd()<CR>
+map <silent> bd :Bclose<CR>
+
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
 
@@ -51,7 +55,6 @@ set hidden
 nmap <C-m> :b#<CR>
 nmap [b :bp<CR>
 nmap ]b :bn<CR>
-nmap zx :NERDTreeClose<CR> :TagbarClose<CR> :bdelete<CR>
 
 "" insert motion
 nmap <C-a> I
@@ -113,8 +116,10 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'janko-m/vim-test'
 Plug 'Yggdroot/indentLine'
+Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
 colorscheme herald
