@@ -122,6 +122,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
-colorscheme herald
-"colorscheme jelleybeans
+"colorscheme herald
+colorscheme jelleybeans
+"colorscheme oceanblack256
+"colorscheme candyman
+"colorscheme mustang
+"colorscheme seoul256
 
