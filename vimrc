@@ -9,7 +9,8 @@ let g:NumberToggleTrigger="<C-b>"
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 
-let NERDTreeHijackNetrw=1
+let NERDTreeHijackNetrw = 1
+let g:ctrlp_dont_split = 'nerdtree'
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
 map <silent> bd :Bclose<CR>
