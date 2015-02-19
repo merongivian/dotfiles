@@ -1,0 +1,11 @@
+#!/bin/bash
+# http://www.sipfish.com/blog/automatically-change-command-line-colors-when-using-ssh/
+
+match=`cat ~/.ssh/config | ag $1 | wc -l`
+if [ $match -gt 0 ]
+then
+  osascript ~/.ssh/prod_theme.scpt
+else
+  osascript ~/.ssh/normal_theme.scpt
+fi
+/usr/bin/ssh $1

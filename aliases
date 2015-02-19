@@ -19,3 +19,4 @@ alias be='bundle exec'
 alias lcat='lolcat'
 alias back='cd ..'
 
+alias ssh='./.ssh/fun_ssh $1'
