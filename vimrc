@@ -2,7 +2,7 @@ let mapleader = "\\"
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
-let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'rubylint']
+let g:syntastic_ruby_checkers = ['mri', 'rubylint']
 
 let g:NumberToggleTrigger="<C-b>"
 
