@@ -12,6 +12,11 @@ let g:indentLine_color_term = 239
 let NERDTreeHijackNetrw = 1
 let g:ctrlp_dont_split = 'nerdtree'
 
+ino <c-j> <c-r>=TriggerSnippet()<cr>
+snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+" imap ss <esc>a<Plug>snipMateNextOrTrigger
+" smap ss <Plug>snipMateNextOrTrigger
+
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
 map <silent> bd :Bclose<CR>
 
@@ -100,7 +105,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'msanders/snipmate.vim'
-Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
@@ -122,6 +126,9 @@ Plug 'janko-m/vim-test'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
+" install cmake and
+" cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 "colorscheme herald
