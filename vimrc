@@ -121,6 +121,7 @@ Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'janko-m/vim-test'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'vim-scripts/camelcasemotion'
 call plug#end()
 
 "colorscheme herald
