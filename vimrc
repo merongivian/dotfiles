@@ -23,11 +23,6 @@ map <silent> bd :Bclose<CR>
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
 
-nmap <silent> <leader>r :TestNearest<CR>
-nmap <silent> <leader>R :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 
 set noswapfile
@@ -122,7 +117,7 @@ Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'janko-m/vim-test'
+Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
