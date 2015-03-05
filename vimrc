@@ -43,7 +43,7 @@ set encoding=utf-8
 set nowrap
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set expandtab!
 set backspace=indent,eol,start
 
 " List chars
@@ -104,6 +104,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 Plug 'msanders/snipmate.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
