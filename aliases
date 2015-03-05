@@ -14,6 +14,10 @@ alias gcom_all='git add . && git commit -m'
 alias gam='git commit --amend'
 alias gshw='git show'
 
+alias greb='git rebase $1'
+alias gsth='git stash'
+alias gsth_pop='git stash pop'
+
 alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
 alias open_merged='vim `git show --pretty="format:" --name-only | uniq`'
 
