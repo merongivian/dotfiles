@@ -1,4 +1,5 @@
 alias gunstage='git reset HEAD'
+alias greset='git reset HEAD~$1 --soft'
 alias gco='git co'
 alias gad='git add'
 alias gada='git add . && git status'
