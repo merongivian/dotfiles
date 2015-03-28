@@ -1,3 +1,6 @@
+" reaload vim automatically when vimrc has changed
+au BufWritePost .vimrc so $MYVIMRC
+
 let mapleader = "\\"
 
 let g:airline#extensions#tabline#enabled = 1
