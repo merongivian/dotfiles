@@ -15,8 +15,8 @@ let g:indentLine_color_term = 239
 let NERDTreeHijackNetrw = 1
 let g:ctrlp_dont_split = 'nerdtree'
 
-ino <c-j> <c-r>=TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+" ino <c-j> <c-r>=TriggerSnippet()<cr>
+" snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 " imap ss <esc>a<Plug>snipMateNextOrTrigger
 " smap ss <Plug>snipMateNextOrTrigger
 
