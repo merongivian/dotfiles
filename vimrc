@@ -135,6 +135,7 @@ Plug 'janko-m/vim-test'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
+Plug 'Raimondi/delimitMate'
 " install cmake and
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 Plug 'Valloric/YouCompleteMe'
