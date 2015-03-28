@@ -73,6 +73,11 @@ nmap <C-e> A
 map s E
 map , B
 
+" remap uppercase error :Qa
+cnoreabbrev W w
+cnoreabbrev Qa qa
+cnoreabbrev Q q
+
 let g:tagbar_type_ruby = {
                 \ 'kinds' : [
                     \ 'm:modules',
