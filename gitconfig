@@ -12,5 +12,6 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
+  editor = 'vim'
 [credential]
 	helper = store
