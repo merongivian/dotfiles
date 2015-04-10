@@ -26,4 +26,7 @@ alias be='bundle exec'
 alias lcat='lolcat'
 alias back='cd ..'
 
+alias vi='vim'
+alias vim='nvim'
+
 alias ssh='./.ssh/fun_ssh $1'
