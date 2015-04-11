@@ -21,7 +21,7 @@ let g:ctrlp_dont_split = 'nerdtree'
 " smap ss <Plug>snipMateNextOrTrigger
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
-map <silent> bd :Bclose<CR>
+map <silent> bd :Bclose!<CR>
 
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
@@ -32,6 +32,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
+tnoremap <Esc> <c-\><c-n>
 
 set noswapfile
 
