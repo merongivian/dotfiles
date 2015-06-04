@@ -34,6 +34,8 @@ nmap <silent> <leader>l :TestLast<CR>
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
 
+vmap <Enter> <Plug>(EasyAlign)
+
 set noswapfile
 
 set hlsearch
@@ -137,6 +139,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'Raimondi/delimitMate'
+Plug 'junegunn/vim-easy-align'
 " install cmake and
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 Plug 'Valloric/YouCompleteMe'
