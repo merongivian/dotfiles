@@ -15,6 +15,7 @@ let g:indentLine_color_term = 239
 let NERDTreeHijackNetrw = 1
 let g:ctrlp_dont_split = 'nerdtree'
 
+let g:session_autosave = 'yes'
 " ino <c-j> <c-r>=TriggerSnippet()<cr>
 " snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 " imap ss <esc>a<Plug>snipMateNextOrTrigger
@@ -140,6 +141,8 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 " install cmake and
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 Plug 'Valloric/YouCompleteMe'
