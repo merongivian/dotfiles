@@ -15,6 +15,10 @@ let NERDTreeHijackNetrw = 1
 let g:ctrlp_dont_split = 'nerdtree'
 
 let g:session_autosave = 'yes'
+
+let g:neoterm_keep_term_open = 0
+let g:neoterm_size = '10'
+
 " ino <c-j> <c-r>=TriggerSnippet()<cr>
 " snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 " imap ss <esc>a<Plug>snipMateNextOrTrigger
@@ -26,10 +30,10 @@ map <silent> bd :Bclose!<CR>
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
 
-nmap <silent> <leader>r :TestNearest<CR>
-nmap <silent> <leader>R :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
+nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
+nmap <silent> <leader>a :call neoterm#test#run('all')<CR>
+nmap <silent> <leader>l :call neoterm#close_all()<CR>
 
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
@@ -142,7 +146,7 @@ Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'janko-m/vim-test'
+Plug 'kassio/neoterm'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
