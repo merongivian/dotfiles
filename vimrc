@@ -5,7 +5,6 @@ let mapleader = "\\"
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
-let g:syntastic_ruby_checkers = ['mri', 'rubylint']
 
 let g:NumberToggleTrigger="<C-b>"
 
@@ -113,6 +112,8 @@ autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
+autocmd BufWritePost * Neomake
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -124,7 +125,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'msanders/snipmate.vim'
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
