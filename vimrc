@@ -25,7 +25,7 @@ let g:neoterm_size = '10'
 " smap ss <Plug>snipMateNextOrTrigger
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
-map <silent> bd :Bclose!<CR>
+map <silent> db :Bclose!<CR>
 
 nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
 nmap <leader>nh :noh<CR>
