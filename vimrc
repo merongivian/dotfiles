@@ -34,6 +34,12 @@ nmap <silent> <leader>l :TestLast<CR>
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
 
+" pinky savers from this blog: http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
+noremap <M-;> ;
+noremap ; :
+
+inoremap jj <esc>
+
 vmap <Enter> <Plug>(EasyAlign)
 
 set noswapfile
