@@ -143,7 +143,6 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'kassio/neoterm'
@@ -154,6 +153,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'sheerun/vim-polyglot'
 " install cmake and
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 Plug 'Valloric/YouCompleteMe'
