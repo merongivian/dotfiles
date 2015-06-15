@@ -1,5 +1,6 @@
 alias gunstage='git reset HEAD'
 alias guncommit='git reset HEAD~$1 --soft'
+alias gst='git status'
 alias gco='git co'
 alias gbrs='git br'
 alias gnbr='git co -b'
