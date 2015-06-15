@@ -156,6 +156,8 @@ Plug 'xolox/vim-session'
 Plug 'sheerun/vim-polyglot'
 " install cmake and
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
+" phyton 2 support for neovim
+" pip install nvim
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
