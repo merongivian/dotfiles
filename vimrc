@@ -159,6 +159,9 @@ Plug 'sheerun/vim-polyglot'
 " phyton 2 support for neovim
 " pip install nvim
 Plug 'Valloric/YouCompleteMe'
+Plug 'terryma/vim-expand-region'
+" for my thesis :)
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
 "colorscheme herald
