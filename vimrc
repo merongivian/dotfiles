@@ -156,6 +156,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-expand-region'
 " color themes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'
@@ -166,6 +167,7 @@ Plug 'junegunn/seoul256.vim'
 " phyton 2 support for neovim
 " pip install nvim
 Plug 'Valloric/YouCompleteMe'
+" for my thesis :)
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
