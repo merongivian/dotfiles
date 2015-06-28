@@ -35,6 +35,9 @@ nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
 nmap <silent> <leader>a :call neoterm#test#run('all')<CR>
 nmap <silent> <leader>l :call neoterm#close_all()<CR>
 
+command! Day :call DayTheme()
+command! Night :call NightTheme()
+
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
 
@@ -134,7 +137,6 @@ Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -154,17 +156,32 @@ Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'sheerun/vim-polyglot'
+" color themes
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
 " install cmake and
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 " phyton 2 support for neovim
 " pip install nvim
 Plug 'Valloric/YouCompleteMe'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
-"colorscheme herald
-colorscheme jelleybeans
-"colorscheme oceanblack256
-"colorscheme candyman
-"colorscheme mustang
-"colorscheme seoul256
+colorscheme jellybeans
 
+" custom functions
+
+function! DayTheme()
+  let g:airline_theme='PaperColor'
+  let g:indentLine_color_term = 250
+  colorscheme papercolor
+endfunction
+
+function! NightTheme()
+  set background=dark
+  let g:airline_theme='powerlineish'
+  let g:indentLine_color_term = 239
+  colorscheme seoul256
+endfunction
