@@ -31,3 +31,5 @@ alias vi='vim'
 alias vim='nvim'
 
 alias ssh='./.ssh/fun_ssh $1'
+
+alias background='osascript ~/.ssh/null_theme.scpt'
