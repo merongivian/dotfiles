@@ -107,6 +107,14 @@ let g:tagbar_type_ruby = {
                 \ 'ctagsargs': ['-f', '-']
                 \ }
 
+augroup sourcesession
+        autocmd!
+        autocmd VimEnter * nested
+        \ if !argc() && empty(v:this_session) && filereadable('Session.vim') |
+        \   source Session.vim |
+        \ endif
+augroup END
+
 " removes trailing spaces
 function! TrimWhiteSpace()
   %s/\s\+$//e
@@ -154,7 +162,7 @@ Plug 'vim-scripts/camelcasemotion'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+Plug 'tpope/vim-obsession'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-expand-region'
 " color themes
