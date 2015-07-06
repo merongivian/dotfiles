@@ -6,6 +6,7 @@
 # files
 
 *.swp
+*.vim
 .ruby-version
 .DS_Store
 tags
