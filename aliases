@@ -32,4 +32,5 @@ alias vim='nvim'
 
 alias ssh='./.ssh/fun_ssh $1'
 
-alias background='osascript ~/.ssh/null_theme.scpt'
+alias night='osascript ~/.themes/night_theme.scpt'
+alias day='osascript ~/.themes/day_theme.scpt'
