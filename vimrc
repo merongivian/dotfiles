@@ -49,6 +49,9 @@ noremap ; :
 
 inoremap jj <esc>
 
+" copy to clipboard
+map <C-c> "+y <CR>
+
 vmap <Enter> <Plug>(EasyAlign)
 
 set noswapfile
