@@ -163,7 +163,7 @@ filetype off                  " required
 
 call plug#begin()
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
