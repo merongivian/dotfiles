@@ -6,7 +6,7 @@ let mapleader = "\\"
 let g:airline_powerline_fonts=1
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='bubblegum'
 
 let g:NumberToggleTrigger="<C-b>"
 
@@ -20,6 +20,8 @@ let g:session_autosave = 'yes'
 
 let g:neoterm_keep_term_open = 0
 let g:neoterm_size = '10'
+
+let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 
 " ino <c-j> <c-r>=TriggerSnippet()<cr>
 " snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
@@ -214,10 +216,10 @@ Plug 'unblevable/quick-scope'
 call plug#end()
 
 colorscheme jellybeans
-
 " custom functions
 
 function! DayTheme()
+  set background=light
   let g:airline_theme='PaperColor'
   let g:indentLine_color_term = 250
   colorscheme papercolor
@@ -225,7 +227,7 @@ endfunction
 
 function! NightTheme()
   set background=dark
-  let g:airline_theme='powerlineish'
+  let g:airline_theme='bubblegum'
   let g:indentLine_color_term = 239
   colorscheme seoul256
 endfunction
