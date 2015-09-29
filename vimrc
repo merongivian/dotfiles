@@ -25,10 +25,21 @@ let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 
 let g:choosewin_overlay_enable = 1
 
-" ino <c-j> <c-r>=TriggerSnippet()<cr>
-" snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-" imap ss <esc>a<Plug>snipMateNextOrTrigger
-" smap ss <Plug>snipMateNextOrTrigger
+" configs for snippets, see:
+" https://www.reddit.com/r/vim/comments/2sx567/snipmate_and_youcompleteme_doesnt_work_well/
+"
+" YouCompleteMe config for snippets
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+"
+" Supertab config for snippets
+let g:SuperTabDefaultCompletionType    = '<C-d>'
+let g:SuperTabCrMapping                = 0
+
+" Supertab config for snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
 map <silent> td :Bclose!<CR>
@@ -177,7 +188,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
-Plug 'msanders/snipmate.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
