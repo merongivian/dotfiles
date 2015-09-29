@@ -23,6 +23,8 @@ let g:neoterm_size = '10'
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 
+let g:choosewin_overlay_enable = 1
+
 " ino <c-j> <c-r>=TriggerSnippet()<cr>
 " snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 " imap ss <esc>a<Plug>snipMateNextOrTrigger
@@ -55,6 +57,8 @@ inoremap jj <esc>
 map <C-c> "+y <CR>
 
 vmap <Enter> <Plug>(EasyAlign)
+
+nmap <Space> <Plug>(choosewin)
 
 set noswapfile
 
@@ -214,6 +218,7 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'dermusikman/sonicpi.vim'
 " remove branch ref when merged
 Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
+Plug 't9md/vim-choosewin'
 call plug#end()
 
 colorscheme jellybeans
