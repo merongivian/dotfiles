@@ -193,7 +193,7 @@ Plug 'kassio/neoterm'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-obsession'
@@ -212,7 +212,8 @@ Plug 'Valloric/YouCompleteMe'
 " for my thesis :)
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'dermusikman/sonicpi.vim'
-Plug 'unblevable/quick-scope'
+" remove branch ref when merged
+Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
 call plug#end()
 
 colorscheme jellybeans
