@@ -228,6 +228,7 @@ Plug 'dermusikman/sonicpi.vim'
 Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
 Plug 't9md/vim-choosewin'
 Plug 'takac/vim-hardtime'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 
 colorscheme jellybeans
