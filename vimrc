@@ -42,10 +42,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
-map <silent> td :Bclose!<CR>
-
-nmap <leader>t :GitGutterToggle<CR> :GitGutterLineHighlightsEnable<CR>
-nmap <leader>nh :noh<CR>
+map <silent> nd :Bclose!<CR>
 
 nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
 nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
@@ -57,8 +54,6 @@ command! Night :call NightTheme()
 
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
-
-inoremap jj <esc>
 
 " copy to clipboard
 map <C-c> "+y <CR>
@@ -129,10 +124,6 @@ nmap ]b :bn<CR>
 "" insert motion
 nmap <C-a> I
 nmap <C-e> A
-
-"" jump motion
-map s E
-map , B
 
 " remap uppercase error :Qa
 cnoreabbrev W w
