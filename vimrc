@@ -49,8 +49,12 @@ let g:hardtime_maxcount = 2
 let g:hardtime_showmsg = 1
 let g:hardtime_timeout = 2000
 
+let g:list_of_normal_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
-map <silent> nd :Bclose!<CR>
+map <silent>td :Bclose!<CR>
 
 nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
 nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
