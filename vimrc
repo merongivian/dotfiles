@@ -41,6 +41,14 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" hardtime
+let g:hardtime_default_on = 1
+
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 2
+let g:hardtime_showmsg = 1
+let g:hardtime_timeout = 2000
+
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
 map <silent> nd :Bclose!<CR>
 
@@ -219,6 +227,7 @@ Plug 'dermusikman/sonicpi.vim'
 " remove branch ref when merged
 Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
 Plug 't9md/vim-choosewin'
+Plug 'takac/vim-hardtime'
 call plug#end()
 
 colorscheme jellybeans
