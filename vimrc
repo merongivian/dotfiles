@@ -58,10 +58,6 @@ command! Night :call NightTheme()
 nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
 
-" pinky savers from this blog: http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
-noremap <M-;> ;
-noremap ; :
-
 inoremap jj <esc>
 
 " copy to clipboard
