@@ -23,7 +23,7 @@ let g:neoterm_size = '10'
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 
-let g:choosewin_overlay_enable = 1
+"let g:choosewin_overlay_enable = 0
 
 " configs for snippets, see:
 " https://www.reddit.com/r/vim/comments/2sx567/snipmate_and_youcompleteme_doesnt_work_well/
@@ -49,8 +49,8 @@ let g:hardtime_maxcount = 2
 let g:hardtime_showmsg = 1
 let g:hardtime_timeout = 2000
 
-let g:list_of_normal_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-let g:list_of_visual_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
@@ -73,6 +73,13 @@ map <C-c> "+y <CR>
 vmap <Enter> <Plug>(EasyAlign)
 
 nmap <Space> <Plug>(choosewin)
+
+if bufwinnr(1)
+  map <C-x>j <C-W>+4
+  map <C-x>k <C-W>-4
+  map <C-x>h :vertical resize -4<CR>
+  map <C-x>l :vertical resize +4<CR>
+endif
 
 set noswapfile
 
