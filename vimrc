@@ -54,7 +54,7 @@ let g:list_of_visual_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<R
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
-map <silent>td :Bclose!<CR>
+map <silent>zd :Bclose!<CR>
 
 nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
 nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
@@ -240,6 +240,7 @@ Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
 Plug 't9md/vim-choosewin'
 Plug 'takac/vim-hardtime'
 Plug 'justinmk/vim-sneak'
+Plug 'rhysd/vim-crystal'
 call plug#end()
 
 colorscheme jellybeans
