@@ -69,6 +69,7 @@ tnoremap <Esc> <c-\><c-n>
 
 " copy to clipboard
 map <C-c> "+y <CR>
+map Y y$
 
 vmap <Enter> <Plug>(EasyAlign)
 
