@@ -206,13 +206,6 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
-Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-Plug 'moll/vim-node', { 'for': 'javascript' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'kassio/neoterm'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
@@ -242,6 +235,12 @@ Plug 't9md/vim-choosewin'
 Plug 'takac/vim-hardtime'
 Plug 'justinmk/vim-sneak'
 Plug 'rhysd/vim-crystal'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 call plug#end()
 
 colorscheme jellybeans
