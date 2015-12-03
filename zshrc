@@ -6,11 +6,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export PATH="$PATH:/usr/sbin"
 homebrew=/usr/local/bin:/usr/local/bin
 export PATH=$homebrew:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+

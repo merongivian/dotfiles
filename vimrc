@@ -183,7 +183,7 @@ autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
-autocmd BufWritePost * Neomake
+autocmd! BufWritePost * Neomake
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -233,9 +233,9 @@ Plug 'dermusikman/sonicpi.vim'
 Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
 Plug 't9md/vim-choosewin'
 Plug 'takac/vim-hardtime'
-Plug 'justinmk/vim-sneak'
 Plug 'rhysd/vim-crystal'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
