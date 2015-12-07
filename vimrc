@@ -22,6 +22,7 @@ let g:neoterm_keep_term_open = 0
 let g:neoterm_size = '10'
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
+let g:neomake_python_enabled_makers = ['pep8']
 
 "let g:choosewin_overlay_enable = 0
 
