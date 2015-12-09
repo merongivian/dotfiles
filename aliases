@@ -1,5 +1,5 @@
-alias rhard='git reset HEAD'
-alias rsoft='git reset HEAD~$1 --soft'
+alias grha='git reset HEAD'
+alias grso='git reset HEAD~$1 --soft'
 alias gst='git status'
 alias gco='git co'
 alias gbr='git br'
@@ -22,6 +22,7 @@ alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
 alias open_merged='vim `git show --pretty="format:" --name-only | uniq`'
 
 alias be='bundle exec'
+alias bi='bundle install'
 
 alias lcat='lolcat'
 

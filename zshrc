@@ -7,6 +7,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 export PATH="$PATH:/usr/sbin"
+
+export PATH="$PATH:$HOME/.rubies/ruby-trunk"
+
 homebrew=/usr/local/bin:/usr/local/bin
 export PATH=$homebrew:$PATH
 
