@@ -18,10 +18,18 @@ alias greb='git rebase $1'
 alias gsth='git stash'
 alias gsth_pop='git stash pop'
 
-alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
-alias open_merged='vim `git show --pretty="format:" --name-only | uniq`'
+alias vi='vim'
+alias vim='nvim'
 
+alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
+# TODO: DRY this
+function open_merged() { vim `git show --pretty="format:" --name-only | uniq`  }
+function open_commit() { vim `git show "$1" --pretty="format:" --name-only | uniq`  }
+
+function cd_match() { cd `ls | ag "$1" | head -n 1` ; }
 alias cd_gems='cd `gem environment gemdir` && cd gems'
+alias cd_gem='cd_gems && cd_match $1'
+function open_gem() { cd_gem "$1" && vim -R . ; }
 
 alias be='bundle exec'
 alias bi='bundle install'
@@ -29,10 +37,9 @@ alias bi='bundle install'
 alias lcat='lolcat'
 alias cat='ccat'
 
-alias vi='vim'
-alias vim='nvim'
-
 alias ssh='~/./.ssh/fun_ssh $1'
 
 alias night='osascript ~/.themes/night_theme.scpt'
 alias day='osascript ~/.themes/day_theme.scpt'
+
+alias find_name='find . -name $1'
