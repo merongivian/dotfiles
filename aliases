@@ -21,10 +21,13 @@ alias gsth_pop='git stash pop'
 alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
 alias open_merged='vim `git show --pretty="format:" --name-only | uniq`'
 
+alias cd_gems='cd `gem environment gemdir` && cd gems'
+
 alias be='bundle exec'
 alias bi='bundle install'
 
 alias lcat='lolcat'
+alias cat='ccat'
 
 alias vi='vim'
 alias vim='nvim'
