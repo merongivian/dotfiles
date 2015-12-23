@@ -37,7 +37,7 @@ alias bi='bundle install'
 alias lcat='lolcat'
 alias cat='ccat'
 
-alias ssh='~/./.ssh/fun_ssh $1'
+alias fssh='~/./.ssh/fun_ssh $1'
 
 alias night='osascript ~/.themes/night_theme.scpt'
 alias day='osascript ~/.themes/day_theme.scpt'
