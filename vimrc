@@ -1,20 +1,17 @@
 " reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
+set showtabline=0
+
 let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
-
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='bubblegum'
 
 let g:NumberToggleTrigger="<C-b>"
 
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
-
-let NERDTreeHijackNetrw = 1
-let g:ctrlp_dont_split = 'nerdtree'
 
 let g:session_autosave = 'yes'
 
@@ -54,6 +51,12 @@ let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<R
 let g:list_of_visual_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+let g:CtrlSpaceDefaultMappingKey = "<C-m>"
+let g:CtrlSpaceUseTabline = 1
+
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
@@ -82,6 +85,8 @@ if bufwinnr(1)
   map <C-x>h :vertical resize -4<CR>
   map <C-x>l :vertical resize +4<CR>
 endif
+
+nnoremap <silent><C-p> :CtrlSpace O<CR>
 
 set noswapfile
 
@@ -137,11 +142,6 @@ for i in g:qs_enable_char_list
   execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
 endfor
 
-"" buffer navigation
-nmap <C-m> :b#<CR>
-nmap [b :bp<CR>
-nmap ]b :bn<CR>
-
 "" insert motion
 nmap <C-a> I
 nmap <C-e> A
@@ -186,15 +186,17 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 
 autocmd! BufWritePost * Neomake
 
+if executable("ag")
+  let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin()
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -217,6 +219,7 @@ Plug 'xolox/vim-misc'
 Plug 'tpope/vim-obsession'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-expand-region'
+Plug 'szw/vim-ctrlspace'
 " color themes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'
