@@ -54,7 +54,7 @@ let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceDefaultMappingKey = "<C-m>"
+let g:CtrlSpaceDefaultMappingKey = "<C-l>"
 let g:CtrlSpaceUseTabline = 1
 
 map <silent> <leader>d :execute 'e '. getcwd()<CR>
