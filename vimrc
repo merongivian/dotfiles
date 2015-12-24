@@ -1,8 +1,6 @@
 " reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
-set showtabline=0
-
 let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
@@ -68,7 +66,6 @@ nmap <silent> <leader>l :call neoterm#close_all()<CR>
 command! Day :call DayTheme()
 command! Night :call NightTheme()
 
-nnoremap <leader>[ :buffers<CR>:buffer<Space>
 tnoremap <Esc> <c-\><c-n>
 
 " copy to clipboard
@@ -86,7 +83,9 @@ if bufwinnr(1)
   map <C-x>l :vertical resize +4<CR>
 endif
 
-nnoremap <silent><C-p> :CtrlSpace O<CR>
+nnoremap <silent><C-p> :Unite -start-insert file<CR>
+nnoremap <leader>[ :Unite buffer<CR>
+nmap <C-m> :b#<CR>
 
 set noswapfile
 
@@ -194,6 +193,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin()
+Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
