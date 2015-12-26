@@ -8,6 +8,8 @@ let g:airline_theme='bubblegum'
 
 let g:NumberToggleTrigger="<C-b>"
 
+let NERDTreeHijackNetrw = 1
+
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 
@@ -55,7 +57,7 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceDefaultMappingKey = "<C-l>"
 let g:CtrlSpaceUseTabline = 1
 
-map <silent> <leader>d :execute 'e '. getcwd()<CR>
+map <silent> - :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
 nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
@@ -83,7 +85,7 @@ if bufwinnr(1)
   map <C-x>l :vertical resize +4<CR>
 endif
 
-nnoremap <silent><C-p> :Unite -start-insert file<CR>
+nnoremap <silent><C-p> :Unite -start-insert file_rec<CR>
 nnoremap <leader>[ :Unite buffer<CR>
 nmap <C-m> :b#<CR>
 
@@ -197,7 +199,7 @@ Plug 'Shougo/unite.vim'
 Plug 'bling/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-vinegar'
+Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
