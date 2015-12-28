@@ -1,6 +1,8 @@
 " reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
+set showtabline=0
+
 let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
@@ -56,6 +58,9 @@ let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceDefaultMappingKey = "<C-l>"
 let g:CtrlSpaceUseTabline = 1
+
+hi link CtrlSpaceNormal   PMenuSel
+hi link CtrlSpaceSelected Search
 
 map <silent> - :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
@@ -146,6 +151,13 @@ endfor
 "" insert motion
 nmap <C-a> I
 nmap <C-e> A
+
+"" tab motion
+nmap <S-h> :tabprev<CR>
+nmap <S-l> :tabnext<CR>
+"" TODO: this is not working, but would be nice to have
+"nmap <C-h> :tabfirst<CR>
+"nmap <C-l> :tablast<CR>
 
 " remap uppercase error :Qa
 cnoreabbrev W w
