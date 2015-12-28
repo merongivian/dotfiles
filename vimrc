@@ -56,7 +56,7 @@ let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceDefaultMappingKey = "<C-l>"
+let g:CtrlSpaceDefaultMappingKey = "<S-m>"
 let g:CtrlSpaceUseTabline = 1
 
 hi link CtrlSpaceNormal   PMenuSel
