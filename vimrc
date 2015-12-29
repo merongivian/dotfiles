@@ -62,7 +62,7 @@ let g:CtrlSpaceUseTabline = 1
 hi link CtrlSpaceNormal   PMenuSel
 hi link CtrlSpaceSelected Search
 
-map <silent> <leader>d :execute 'e '. getcwd()<CR>
+map <silent> <leader>= :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
 nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
