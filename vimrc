@@ -62,7 +62,7 @@ let g:CtrlSpaceUseTabline = 1
 hi link CtrlSpaceNormal   PMenuSel
 hi link CtrlSpaceSelected Search
 
-map <silent> - :execute 'e '. getcwd()<CR>
+map <silent> <leader>d :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
 nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
@@ -212,6 +212,7 @@ Plug 'bling/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
