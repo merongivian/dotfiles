@@ -1,8 +1,6 @@
 " reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
-set showtabline=0
-
 let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
