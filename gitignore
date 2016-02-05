@@ -8,5 +8,6 @@
 *.swp
 *.vim
 .ruby-version
+.ruby-gemset
 .DS_Store
 tags
