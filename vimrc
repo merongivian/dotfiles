@@ -122,30 +122,6 @@ set listchars+=precedes:<         " The character to show in the last column whe
 
 set hidden
 
-" code for enabling quickscope only when movin through characters
-" see: https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
-
-let g:qs_enable = 0
-let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
-
-function! Quick_scope_selective(movement)
-    let needs_disabling = 0
-    if !g:qs_enable
-        QuickScopeToggle
-        redraw
-        let needs_disabling = 1
-    endif
-    let letter = nr2char(getchar())
-    if needs_disabling
-        QuickScopeToggle
-    endif
-    return a:movement . letter
-endfunction
-
-for i in g:qs_enable_char_list
-  execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
-endfor
-
 "" insert motion
 nmap <C-a> I
 nmap <C-e> A
@@ -233,6 +209,7 @@ Plug 'tpope/vim-obsession'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-expand-region'
 Plug 'szw/vim-ctrlspace'
+Plug 'rhysd/clever-f.vim'
 " color themes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'
@@ -246,8 +223,6 @@ Plug 'Valloric/YouCompleteMe'
 " for my thesis :)
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'dermusikman/sonicpi.vim'
-" remove branch ref when merged
-Plug 'unblevable/quick-scope', {'branch': '1.1.1'}
 Plug 't9md/vim-choosewin'
 Plug 'takac/vim-hardtime'
 Plug 'rhysd/vim-crystal'
@@ -258,8 +233,10 @@ Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'mhinz/vim-janah'
 call plug#end()
 
+autocmd ColorScheme janah highlight Normal ctermbg=235
 colorscheme jellybeans
 " custom functions
 
@@ -274,5 +251,5 @@ function! NightTheme()
   set background=dark
   let g:airline_theme='bubblegum'
   let g:indentLine_color_term = 239
-  colorscheme seoul256
+  colorscheme janah
 endfunction
