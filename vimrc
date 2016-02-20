@@ -110,6 +110,7 @@ set backspace=indent,eol,start
 
 au BufNewFile,BufRead *.tex set spelllang=es spell
 au BufNewFile,BufRead *.md set spelllang=en spell
+au BufReadPost *.es6 set syntax=javascript
 
 " List chars
 set listchars=""                  " Reset the listchars
@@ -233,6 +234,7 @@ Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
 call plug#end()
 
