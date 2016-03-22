@@ -1,6 +1,8 @@
 " reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
+let g:lisp_rainbow = 1
+
 let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
@@ -57,13 +59,39 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceDefaultMappingKey = "<S-m>"
 let g:CtrlSpaceUseTabline = 1
 
+" rainbow parenthesis
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\   'operators': '_,_',
+\   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\   'separately': {
+\       '*': {},
+\       'tex': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\       },
+\       'lisp': {
+\           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\       },
+\       'vim': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\       },
+\       'html': {
+\           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\       },
+\       'css': 0,
+\   }
+\}
+
+" ctrlspace
 hi link CtrlSpaceNormal   PMenuSel
 hi link CtrlSpaceSelected Search
 
 map <silent> <leader>= :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
-nmap <silent> <leader>r :call neoterm#test#run('current')<CR>
+nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
 nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
 nmap <silent> <leader>a :call neoterm#test#run('all')<CR>
 nmap <silent> <leader>l :call neoterm#close_all()<CR>
@@ -88,8 +116,6 @@ if bufwinnr(1)
   map <C-x>l :vertical resize +4<CR>
 endif
 
-nnoremap <silent><C-p> :Unite -start-insert file_rec<CR>
-nnoremap <leader>[ :Unite buffer<CR>
 nmap <C-m> :b#<CR>
 
 set noswapfile
@@ -183,6 +209,7 @@ filetype off                  " required
 
 call plug#begin()
 Plug 'Shougo/unite.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
@@ -236,6 +263,7 @@ Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
