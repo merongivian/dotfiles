@@ -154,8 +154,8 @@ nmap <C-a> I
 nmap <C-e> A
 
 "" tab motion
-nmap <S-h> :tabprev<CR>
-nmap <S-l> :tabnext<CR>
+nmap <C-k> :tabprev<CR>
+nmap <C-j> :tabnext<CR>
 "" TODO: this is not working, but would be nice to have
 "nmap <C-h> :tabfirst<CR>
 "nmap <C-l> :tablast<CR>
@@ -208,7 +208,6 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin()
-Plug 'Shougo/unite.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
@@ -257,6 +256,8 @@ Plug 'rhysd/vim-crystal'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'thinca/vim-ref'
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
