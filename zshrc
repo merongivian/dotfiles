@@ -28,3 +28,7 @@ export PATH=$PATH:$GOROOT/bin
 
 # elixir versions
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+# init with rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
