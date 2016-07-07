@@ -117,6 +117,8 @@ if bufwinnr(1)
 endif
 
 nmap <C-m> :b#<CR>
+" get all files and buffers
+nmap <leader>[ :Unite buffer<CR>
 
 set noswapfile
 
@@ -265,6 +267,7 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
 Plug 'luochen1990/rainbow'
+Plug 'Shougo/unite.vim'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
