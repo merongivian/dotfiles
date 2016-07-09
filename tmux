@@ -26,6 +26,8 @@ bind C-s send-prefix
 
 bind b last-window
 
+set -sg escape-time 0
+
 # Navigate panes like Vim.
 bind h select-pane -L
 bind j select-pane -D
