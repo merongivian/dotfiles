@@ -24,6 +24,8 @@ unbind C-b
 set -g prefix C-s
 bind C-s send-prefix
 
+bind b last-window
+
 # Navigate panes like Vim.
 bind h select-pane -L
 bind j select-pane -D
