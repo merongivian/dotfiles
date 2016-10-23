@@ -20,8 +20,9 @@ let g:session_autosave = 'yes'
 let g:neoterm_keep_term_open = 0
 let g:neoterm_size = '10'
 
-let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
+"let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 let g:neomake_python_enabled_makers = ['pep8']
+let g:neomake_ruby_checkers = ['rubocop']
 
 "let g:choosewin_overlay_enable = 0
 
@@ -248,7 +249,7 @@ Plug 'junegunn/seoul256.vim'
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 " phyton 2 support for neovim
 " pip install nvim
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " for my thesis :)
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'dermusikman/sonicpi.vim'
@@ -259,7 +260,10 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
-Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+" detects elixir keywords and triggers autocomplete methods
+" without having to use C-space
+Plug 'larrylv/ycm-elixir', { 'for': 'elixir' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
