@@ -15,7 +15,6 @@ set -g @tpm_plugins '              \
 run-shell '~/.tmux/plugins/tpm/tpm'
 
 set -g default-terminal "screen-256color"
-set -g mode-mouse on
 
 set -g @resurrect-save 'o'
 set -g @resurrect-restore 'p'
