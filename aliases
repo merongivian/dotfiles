@@ -33,6 +33,7 @@ function open_gem() { cd_gem "$1" && vim -R . ; }
 
 alias be='bundle exec'
 alias bi='bundle install'
+alias bedb='be rake db:drop db:create db:migrate'
 alias xrails='/Users/Jose/projects/ruby/cool_repos/rails/railties/exe/rails'
 
 alias lcat='lolcat'
