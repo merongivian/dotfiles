@@ -272,6 +272,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
 Plug 'luochen1990/rainbow'
 Plug 'Shougo/unite.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235

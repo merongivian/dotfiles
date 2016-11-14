@@ -13,6 +13,7 @@ alias gcom='git commit -m'
 alias gcom_all='git add . && git commit -m'
 alias gam='git commit --amend'
 alias gshw='git show'
+alias gp='git push origin'
 
 alias greb='git rebase $1'
 alias gsth='git stash'
@@ -33,7 +34,8 @@ function open_gem() { cd_gem "$1" && vim -R . ; }
 
 alias be='bundle exec'
 alias bi='bundle install'
-alias bedb='be rake db:drop db:create db:migrate'
+alias bedcm='be rake db:drop db:create db:migrate'
+alias bes='be rails s'
 alias xrails='/Users/Jose/projects/ruby/cool_repos/rails/railties/exe/rails'
 
 alias lcat='lolcat'
