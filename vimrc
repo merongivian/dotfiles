@@ -1,12 +1,12 @@
 " reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
 let g:lisp_rainbow = 1
 
 let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
-let g:airline_theme='bubblegum'
 
 let g:NumberToggleTrigger="<C-b>"
 
@@ -60,6 +60,12 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceDefaultMappingKey = "<S-m>"
 let g:CtrlSpaceUseTabline = 1
 
+" ctrlp performance
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
@@ -84,10 +90,6 @@ let g:rainbow_conf = {
 \       'css': 0,
 \   }
 \}
-
-" ctrlspace
-hi link CtrlSpaceNormal   PMenuSel
-hi link CtrlSpaceSelected Search
 
 map <silent> <leader>= :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
@@ -236,9 +238,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-obsession'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-expand-region'
-Plug 'szw/vim-ctrlspace'
 Plug 'rhysd/clever-f.vim'
 " color themes
 Plug 'NLKNguyen/papercolor-theme'
@@ -264,8 +265,13 @@ Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " detects elixir keywords and triggers autocomplete methods
 " without having to use C-space
 Plug 'larrylv/ycm-elixir', { 'for': 'elixir' }
+" tags: use ripper_tags https://github.com/lzap/gem-ripper-tags
+" ripper-tags -R --exclude=vendor
+" https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'isRuslan/vim-es6'
@@ -273,6 +279,7 @@ Plug 'mhinz/vim-janah'
 Plug 'luochen1990/rainbow'
 Plug 'Shougo/unite.vim'
 Plug 'w0rp/ale'
+Plug 'mhinz/vim-hugefile'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
