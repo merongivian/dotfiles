@@ -139,6 +139,9 @@ set shiftwidth=2
 set expandtab!
 set backspace=indent,eol,start
 
+set cursorline
+set cursorcolumn
+
 au BufNewFile,BufRead *.tex set spelllang=es spell
 au BufNewFile,BufRead *.md set spelllang=en spell
 au BufReadPost *.es6 set syntax=javascript
@@ -268,8 +271,8 @@ Plug 'larrylv/ycm-elixir', { 'for': 'elixir' }
 " tags: use ripper_tags https://github.com/lzap/gem-ripper-tags
 " ripper-tags -R --exclude=vendor
 " https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'tpope/vim-rails', { 'for': 'ruby' }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
