@@ -3,6 +3,10 @@ source $HOME/custom_aliases.zsh
 export EDITOR=nvim
 export VISUAL=nvim
 
+# http://spin.atomicobject.com/2015/01/02/python-environment-mgmt/
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 # follow this instructions, but delete your old zsh first
 # https://github.com/sorin-ionescu/prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
