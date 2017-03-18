@@ -1,4 +1,7 @@
 source $HOME/.aliases
+source $HOME/custom_aliases.zsh
+export EDITOR=nvim
+export VISUAL=nvim
 
 # follow this instructions, but delete your old zsh first
 # https://github.com/sorin-ionescu/prezto
@@ -35,3 +38,6 @@ export elixir_fork_path="$forks_path/elixir"
 # init with rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# custom scripts path
+export PATH=$PATH:$HOME/scripts
