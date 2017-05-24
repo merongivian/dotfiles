@@ -103,6 +103,7 @@ command! Day :call DayTheme()
 command! Night :call NightTheme()
 
 tnoremap <Esc> <c-\><c-n>
+vnoremap <leader>gg y:Ag <c-r>"<cr>
 
 " copy to clipboard
 map <C-c> "+y <CR>
