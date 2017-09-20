@@ -91,13 +91,22 @@ let g:rainbow_conf = {
 \   }
 \}
 
+" vim-test
+let g:test#ruby#minitest#executable = 'm'
+let test#strategy = "neoterm"
+
 map <silent> <leader>= :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
-nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
-nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
-nmap <silent> <leader>a :call neoterm#test#run('all')<CR>
-nmap <silent> <leader>l :call neoterm#close_all()<CR>
+"nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
+"nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
+"nmap <silent> <leader>a :call neoterm#test#run('all')<CR>
+"nmap <silent> <leader>l :call neoterm#close_all()<CR>
+
+nmap <silent> <leader>q :TestNearest<CR>
+nmap <silent> <leader>R :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+"nmap <silent> <leader>g :TestVisit<CR>
 
 command! Day :call DayTheme()
 command! Night :call NightTheme()
@@ -284,6 +293,7 @@ Plug 'luochen1990/rainbow'
 Plug 'Shougo/unite.vim'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-hugefile'
+Plug 'janko-m/vim-test'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
