@@ -8,9 +8,7 @@ let mapleader = "\\"
 
 let g:airline_powerline_fonts=1
 
-let g:NumberToggleTrigger="<C-b>"
-
-let NERDTreeHijackNetrw = 1
+"nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
 
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
@@ -242,7 +240,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'kassio/neoterm'
 Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
@@ -294,6 +292,8 @@ Plug 'Shougo/unite.vim'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-hugefile'
 Plug 'janko-m/vim-test'
+" livecoding
+Plug 'munshkr/vim-tidal'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
@@ -313,3 +313,12 @@ function! NightTheme()
   let g:indentLine_color_term = 239
   colorscheme janah
 endfunction
+
+function! g:ToggleNuMode()
+  if &relativenumber == 1
+     set norelativenumber
+  else
+     set relativenumber
+  endif
+endfunction
+nnoremap <silent><C-b> :call g:ToggleNuMode()<cr>
