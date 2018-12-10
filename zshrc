@@ -39,9 +39,15 @@ test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 export forks_path="$HOME/code/source"
 export elixir_fork_path="$forks_path/elixir"
 
-# init with rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 # custom scripts path
 export PATH=$PATH:$HOME/scripts
+export PATH="/usr/local/opt/qt/bin:$PATH"
+
+# docker-osx-dev
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/jose/.boot2docker/certs/boot2docker-vm
+export PATH="/usr/local/opt/qt/bin:$PATH"
+
+export PATH="$HOME/.bin:$PATH"
+source /Users/jose/.asdf/asdf.sh
