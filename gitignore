@@ -10,4 +10,4 @@
 .ruby-version
 .ruby-gemset
 .DS_Store
-tags
+.tool-versions
