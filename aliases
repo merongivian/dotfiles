@@ -12,6 +12,7 @@ alias gdc='git diff --cached'
 alias gcom='git commit -m'
 alias gcom_all='git add . && git commit -m'
 alias gam='git commit --amend'
+alias gamn='git commit --amend --no-edit'
 alias gshw='git show'
 alias gp='git push origin'
 
@@ -21,6 +22,9 @@ alias gsth_pop='git stash pop'
 
 alias vi='vim'
 alias vim='nvim'
+# https://jasonseney.com/post/18646147210/open-edit-save-encrypted-files-with-vim-and-gpg
+vimdecrypt() { gpg -d "$1" | vim - -n -i "NONE" "+set filetype=$2"; }
+alias vd="vimdecrypt"
 
 alias open_unmerged='vim `git diff HEAD --name-only | uniq`'
 # TODO: DRY this
@@ -47,3 +51,4 @@ alias night='osascript ~/.themes/night_theme.scpt'
 alias day='osascript ~/.themes/day_theme.scpt'
 
 alias find_name='find . -name $1'
+alias rm='trash'
