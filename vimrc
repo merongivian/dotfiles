@@ -24,13 +24,6 @@ let g:neomake_ruby_checkers = ['rubocop']
 
 "let g:choosewin_overlay_enable = 0
 
-" configs for snippets, see:
-" https://www.reddit.com/r/vim/comments/2sx567/snipmate_and_youcompleteme_doesnt_work_well/
-"
-" YouCompleteMe config for snippets
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-"
 " Supertab config for snippets
 let g:SuperTabDefaultCompletionType    = '<C-d>'
 let g:SuperTabCrMapping                = 0
@@ -39,6 +32,10 @@ let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><C-t>  pumvisible() ? "\<CR>" : "\<C-t>"
 
 " hardtime
 let g:hardtime_default_on = 1
@@ -261,7 +258,10 @@ Plug 'junegunn/seoul256.vim'
 " cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 " phyton 2 support for neovim
 " pip install nvim
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" always select first item on pop menu
+" Plug 'vim-scripts/AutoComplPop'
 " for my thesis :)
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'dermusikman/sonicpi.vim'
