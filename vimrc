@@ -275,12 +275,14 @@ Plug 'thinca/vim-ref'
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " detects elixir keywords and triggers autocomplete methods
 " without having to use C-space
-Plug 'larrylv/ycm-elixir', { 'for': 'elixir' }
+"Plug 'larrylv/ycm-elixir', { 'for': 'elixir' }
 " tags: use ripper_tags https://github.com/lzap/gem-ripper-tags
 " ripper-tags -R --exclude=vendor
 " https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
 " Plug 'tpope/vim-rails', { 'for': 'ruby' }
 " Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'kana/vim-textobj-user', { 'for': 'elixir' }
+Plug 'andyl/vim-textobj-elixir', { 'for': 'elixir' }
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
