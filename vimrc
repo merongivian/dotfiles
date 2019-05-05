@@ -25,13 +25,15 @@ let g:neomake_ruby_checkers = ['rubocop']
 "let g:choosewin_overlay_enable = 0
 
 " Supertab config for snippets
+" not sure why this does, consider deleting
 let g:SuperTabDefaultCompletionType    = '<C-d>'
 let g:SuperTabCrMapping                = 0
 
 " Supertab config for snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<C-d>"
+let g:UltiSnipsJumpForwardTrigger="<C-d>"
+"not really using this, but should
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
