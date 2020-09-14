@@ -57,6 +57,10 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceDefaultMappingKey = "<S-m>"
 let g:CtrlSpaceUseTabline = 1
 
+" rspec fold
+let g:fold_rspec_foldclose = 'all'
+let g:fold_rspec_foldenable = 0
+
 " ctrlp performance
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
@@ -272,7 +276,7 @@ Plug 'takac/vim-hardtime'
 Plug 'rhysd/vim-crystal'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " detects elixir keywords and triggers autocomplete methods
@@ -298,6 +302,7 @@ Plug 'mhinz/vim-hugefile'
 Plug 'janko-m/vim-test'
 " livecoding
 Plug 'munshkr/vim-tidal'
+Plug 'rlue/vim-fold-rspec'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
