@@ -25,19 +25,19 @@ let g:neomake_ruby_checkers = ['rubocop']
 "let g:choosewin_overlay_enable = 0
 
 " Supertab config for snippets
-" not sure why this does, consider deleting
-let g:SuperTabDefaultCompletionType    = '<C-d>'
-let g:SuperTabCrMapping                = 0
+" not sure what this does, consider deleting
+"let g:SuperTabDefaultCompletionType    = '<C-d>'
+"let g:SuperTabCrMapping                = 0
 
 " Supertab config for snippets
-let g:UltiSnipsExpandTrigger="<C-d>"
-let g:UltiSnipsJumpForwardTrigger="<C-d>"
+"let g:UltiSnipsExpandTrigger="<C-d>"
+"let g:UltiSnipsJumpForwardTrigger="<C-d>"
 "not really using this, but should
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><C-t>  pumvisible() ? "\<CR>" : "\<C-t>"
+"let g:deoplete#enable_at_startup = 1
+"inoremap <expr><C-t>  pumvisible() ? "\<CR>" : "\<C-t>"
 
 " hardtime
 let g:hardtime_default_on = 1
@@ -235,7 +235,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
@@ -265,7 +265,7 @@ Plug 'junegunn/seoul256.vim'
 " phyton 2 support for neovim
 " pip install nvim
 "Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " always select first item on pop menu
 " Plug 'vim-scripts/AutoComplPop'
 " for my thesis :)
@@ -279,6 +279,7 @@ Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+Plug 'mhinz/vim-mix-format', { 'for': 'elixir' }
 " detects elixir keywords and triggers autocomplete methods
 " without having to use C-space
 "Plug 'larrylv/ycm-elixir', { 'for': 'elixir' }
@@ -303,6 +304,7 @@ Plug 'janko-m/vim-test'
 " livecoding
 Plug 'munshkr/vim-tidal'
 Plug 'rlue/vim-fold-rspec'
+
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
