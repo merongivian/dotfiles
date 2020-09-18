@@ -29,9 +29,11 @@ let g:neomake_ruby_checkers = ['rubocop']
 "let g:SuperTabDefaultCompletionType    = '<C-d>'
 "let g:SuperTabCrMapping                = 0
 
+" scroll from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " Supertab config for snippets
-"let g:UltiSnipsExpandTrigger="<C-d>"
-"let g:UltiSnipsJumpForwardTrigger="<C-d>"
+let g:UltiSnipsExpandTrigger="<C-d>"
+let g:UltiSnipsJumpForwardTrigger="<C-d>"
 "not really using this, but should
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
@@ -235,7 +237,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
@@ -266,6 +268,7 @@ Plug 'junegunn/seoul256.vim'
 " pip install nvim
 "Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " always select first item on pop menu
 " Plug 'vim-scripts/AutoComplPop'
 " for my thesis :)
