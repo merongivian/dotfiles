@@ -18,10 +18,6 @@ let g:session_autosave = 'yes'
 let g:neoterm_keep_term_open = 0
 let g:neoterm_size = '10'
 
-"let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
-let g:neomake_python_enabled_makers = ['pep8']
-let g:neomake_ruby_checkers = ['rubocop']
-
 "let g:choosewin_overlay_enable = 0
 
 " Supertab config for snippets
@@ -219,8 +215,6 @@ autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
-autocmd! BufWritePost * Neomake
-
 if executable("ag")
   let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
@@ -238,7 +232,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
-Plug 'benekastah/neomake'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
@@ -281,7 +274,6 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'mhinz/vim-mix-format', { 'for': 'elixir' }
 " detects elixir keywords and triggers autocomplete methods
 " without having to use C-space
@@ -301,7 +293,6 @@ Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
 Plug 'luochen1990/rainbow'
 Plug 'Shougo/unite.vim'
-Plug 'w0rp/ale'
 Plug 'mhinz/vim-hugefile'
 Plug 'janko-m/vim-test'
 " livecoding
