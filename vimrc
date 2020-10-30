@@ -94,6 +94,9 @@ let g:rainbow_conf = {
 let g:test#ruby#minitest#executable = 'm'
 let test#strategy = "neoterm"
 
+" ale linters
+let g:ale_linters = {'ruby': ['ruby']}
+
 map <silent> <leader>= :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
