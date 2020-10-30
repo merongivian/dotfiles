@@ -293,6 +293,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
 Plug 'luochen1990/rainbow'
 Plug 'Shougo/unite.vim'
+Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-hugefile'
 Plug 'janko-m/vim-test'
 " livecoding
