@@ -131,7 +131,6 @@ if bufwinnr(1)
   map <C-x>l :vertical resize +4<CR>
 endif
 
-nmap <C-m> :b#<CR>
 " get all files and buffers
 nmap <leader>[ :Unite buffer<CR>
 
