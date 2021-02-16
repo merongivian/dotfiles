@@ -223,6 +223,9 @@ endif
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
+" tidal
+filetype plugin on
+let g:tidal_target = "terminal"
 
 call plug#begin()
 Plug 'kien/ctrlp.vim'
@@ -299,7 +302,7 @@ Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-hugefile'
 Plug 'janko-m/vim-test'
 " livecoding
-Plug 'munshkr/vim-tidal'
+Plug 'merongivian/vim-tidal'
 Plug 'rlue/vim-fold-rspec'
 
 call plug#end()
