@@ -1,5 +1,4 @@
 source $HOME/.aliases
-source $HOME/custom_aliases.zsh
 export EDITOR=nvim
 export VISUAL=nvim
 
