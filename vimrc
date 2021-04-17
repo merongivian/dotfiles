@@ -227,6 +227,9 @@ filetype off                  " required
 filetype plugin on
 let g:tidal_target = "terminal"
 
+" gitgutter
+autocmd BufWritePost * GitGutter
+
 call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
