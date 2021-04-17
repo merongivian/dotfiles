@@ -90,9 +90,17 @@ let g:rainbow_conf = {
 \   }
 \}
 
+" split-term
+set splitbelow
+
 " vim-test
+function! BufferTermStrategy(cmd)
+  exec '20Term ' . a:cmd
+endfunction
+
 let g:test#ruby#minitest#executable = 'm'
-let test#strategy = "neoterm"
+let g:test#custom_strategies = {'bufferterm': function('BufferTermStrategy')}
+let g:test#strategy = 'bufferterm'
 
 " ale linters
 let g:ale_linters = {'ruby': ['ruby']}
@@ -307,6 +315,7 @@ Plug 'janko-m/vim-test'
 " livecoding
 Plug 'merongivian/vim-tidal'
 Plug 'rlue/vim-fold-rspec'
+Plug 'vimlab/split-term.vim'
 
 call plug#end()
 
