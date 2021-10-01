@@ -26,7 +26,7 @@ let g:neoterm_size = '10'
 "let g:SuperTabCrMapping                = 0
 
 " scroll from top to bottom
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 " Supertab config for snippets
 let g:UltiSnipsExpandTrigger="<C-d>"
 let g:UltiSnipsJumpForwardTrigger="<C-d>"
@@ -247,7 +247,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
@@ -277,7 +276,7 @@ Plug 'junegunn/seoul256.vim'
 " pip install nvim
 "Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " always select first item on pop menu
 " Plug 'vim-scripts/AutoComplPop'
 " for my thesis :)
@@ -316,7 +315,12 @@ Plug 'janko-m/vim-test'
 Plug 'merongivian/vim-tidal'
 Plug 'rlue/vim-fold-rspec'
 Plug 'vimlab/split-term.vim'
-
+" lua lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
@@ -345,3 +349,91 @@ function! g:ToggleNuMode()
   endif
 endfunction
 nnoremap <silent><C-b> :call g:ToggleNuMode()<cr>
+
+" -----------------------
+" -----------------------
+" lua setup
+" -----------------------
+" -----------------------
+
+lua << EOF
+-- ----------
+-- ----------
+-- LSP with tab completion integrated with ultisnips
+-- ----------
+-- ----------
+local cmp = require("cmp")
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+  local col = vim.fn.col(".") - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
+end
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  sources = {
+    { name = "ultisnips" },
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    -- more sources
+  },
+  -- Configure for <TAB> people
+  -- - <TAB> and <S-TAB>: cycle forward and backward through autocompletion items
+  -- - <TAB> and <S-TAB>: cycle forward and backward through snippets tabstops and placeholders
+  -- - <TAB> to expand snippet when no completion item selected (you don't need to select the snippet from completion item to expand)
+  -- - <C-space> to expand the selected snippet from completion menu
+  mapping = {
+    ["<C-Space>"] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
+          return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
+        end
+
+        vim.fn.feedkeys(t("<C-n>"), "n")
+      elseif check_back_space() then
+        vim.fn.feedkeys(t("<cr>"), "n")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(t("<C-n>"), "n")
+      elseif check_back_space() then
+        vim.fn.feedkeys(t("<tab>"), "n")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+        return vim.fn.feedkeys(t("<C-R>=UltiSnips#JumpBackwards()<CR>"))
+      elseif vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(t("<C-p>"), "n")
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+  },
+})
+
+require'lspconfig'.solargraph.setup {
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+EOF
