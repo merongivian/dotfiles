@@ -120,9 +120,12 @@ nmap <silent> <leader>a :TestSuite<CR>
 
 command! Day :call DayTheme()
 command! Night :call NightTheme()
+command! -nargs=1 Ts :lua require('telescope.builtin').live_grep({default_text = <q-args>})
 
 tnoremap <Esc> <c-\><c-n>
-vnoremap <leader>gg y:Ag <c-r>"<cr>
+vnoremap <leader>gg y:Ts <c-r>"<cr>
+vnoremap <leader>rr y:Ts def <c-r>"<cr>
+"
 
 " copy to clipboard
 map <C-c> "+y <CR>
@@ -315,12 +318,24 @@ Plug 'janko-m/vim-test'
 Plug 'merongivian/vim-tidal'
 Plug 'rlue/vim-fold-rspec'
 Plug 'vimlab/split-term.vim'
-" lua lsp
+" -------------------------------------
+" -------------------------------------
+" ----------- LUA PLUGINS -------------
+" -------------------------------------
+" -------------------------------------
+" lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+" search
+Plug 'BurntSushi/ripgrep', { 'do': 'brew install ripgrep' }
+Plug 'sharkdp/fd'
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
