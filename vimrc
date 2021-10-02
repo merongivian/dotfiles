@@ -238,9 +238,6 @@ filetype off                  " required
 filetype plugin on
 let g:tidal_target = "terminal"
 
-" gitgutter
-autocmd BufWritePost * GitGutter
-
 call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -254,7 +251,7 @@ Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'rking/ag.vim'
 "Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'kassio/neoterm'
@@ -375,8 +372,6 @@ lua << EOF
 -- ----------
 -- ----------
 -- LSP with tab completion integrated with ultisnips
--- ----------
--- ----------
 local cmp = require("cmp")
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -451,4 +446,9 @@ cmp.setup({
 require'lspconfig'.solargraph.setup {
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+-- ----------
+-- ----------
+-- init gitsigns
+
+require('gitsigns').setup()
 EOF
