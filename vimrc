@@ -10,9 +10,6 @@ let g:airline_powerline_fonts=1
 
 "nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
 
-let g:indentLine_char = '│'
-let g:indentLine_color_term = 239
-
 let g:session_autosave = 'yes'
 
 let g:neoterm_keep_term_open = 0
@@ -255,7 +252,6 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'rking/ag.vim'
 "Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'kassio/neoterm'
-Plug 'Yggdroot/indentLine'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'jiangmiao/auto-pairs'
@@ -332,6 +328,10 @@ Plug 'sharkdp/fd'
 Plug 'nvim-telescope/telescope-fzf-native.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+" indentation lines
+Plug 'lukas-reineke/indent-blankline.nvim'
+" treesiter, install package for language afterwords
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -342,14 +342,12 @@ colorscheme jellybeans
 function! DayTheme()
   set background=light
   let g:airline_theme='PaperColor'
-  let g:indentLine_color_term = 250
   colorscheme papercolor
 endfunction
 
 function! NightTheme()
   set background=dark
   let g:airline_theme='bubblegum'
-  let g:indentLine_color_term = 239
   colorscheme janah
 endfunction
 
@@ -457,4 +455,14 @@ require'lspconfig'.solargraph.setup {
 -- init gitsigns
 
 require('gitsigns').setup()
+-- ----------
+-- ----------
+-- init indent blankline
+
+vim.opt.list = true
+
+require("indent_blankline").setup {
+  space_char_blankline = " ",
+  show_current_context = true,
+}
 EOF
