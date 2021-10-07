@@ -117,6 +117,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 
 command! Day :call DayTheme()
 command! Night :call NightTheme()
+command! Storm :call StormTheme()
 command! -nargs=1 Ts :lua require('telescope.builtin').live_grep({default_text = <q-args>})
 
 tnoremap <Esc> <c-\><c-n>
@@ -332,6 +333,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 " treesiter, install package for language afterwords
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Day/night theme
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -340,15 +343,39 @@ colorscheme jellybeans
 " custom functions
 
 function! DayTheme()
-  set background=light
-  let g:airline_theme='PaperColor'
-  colorscheme papercolor
+  " hacky way to reload scheme so i can change the theme if already set
+  " with tokyonight
+  colorscheme jellybeans
+
+  let g:tokyonight_style = "day"
+  let g:tokyonight_italic_functions = 1
+  let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+  colorscheme tokyonight
 endfunction
 
 function! NightTheme()
-  set background=dark
-  let g:airline_theme='bubblegum'
-  colorscheme janah
+  " hacky way to reload scheme so i can change the theme if already set
+  " with tokyonight
+  colorscheme jellybeans
+
+  let g:tokyonight_style = "night"
+  let g:tokyonight_italic_functions = 1
+  let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+  colorscheme tokyonight
+endfunction
+
+function! StormTheme()
+  " hacky way to reload scheme so i can change the theme if already set
+  " with tokyonight
+  colorscheme jellybeans
+
+  let g:tokyonight_style = "storm"
+  let g:tokyonight_italic_functions = 1
+  let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+  colorscheme tokyonight
 endfunction
 
 function! g:ToggleNuMode()
@@ -462,7 +489,6 @@ require('gitsigns').setup()
 vim.opt.list = true
 
 require("indent_blankline").setup {
-  space_char_blankline = " ",
   show_current_context = true,
 }
 EOF
