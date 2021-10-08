@@ -6,8 +6,6 @@ let g:lisp_rainbow = 1
 
 let mapleader = "\\"
 
-let g:airline_powerline_fonts=1
-
 "nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
 
 let g:session_autosave = 'yes'
@@ -238,7 +236,6 @@ let g:tidal_target = "terminal"
 
 call plug#begin()
 Plug 'kien/ctrlp.vim'
-Plug 'bling/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -335,11 +332,15 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Day/night theme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" bottom line
+Plug 'shadmansaleh/lualine.nvim' " this is not the original repo (it has not been updated in a while)
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
-colorscheme jellybeans
+colorscheme tokyonight
+let g:tokyonight_style = "storm"
 " custom functions
 
 function! DayTheme()
@@ -491,4 +492,35 @@ vim.opt.list = true
 require("indent_blankline").setup {
   show_current_context = true,
 }
+
+-- ----------
+-- ----------
+-- init lualine
+
+-- stolen from: https://github.com/hoob3rt/lualine.nvim/issues/335
+-- makes more clear that buffer has not being saved
+local sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
+    lualine_c = {{function()
+      local bg = '#228b22' -- not modified
+      if vim.bo.modified then bg = '#ff4499' -- unsaved
+      elseif not vim.bo.modifiable then bg = '#a70089' end -- readonly
+      vim.cmd('hi! lualine_filename_status guibg='..bg)
+      return '%t %m'
+    end,
+    color = 'lualine_filename_status',
+    }}
+    ,
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress'},
+    lualine_z = { 'location'}
+    }
+
+require('lualine').setup({
+    options = { theme = 'tokyonight' },
+    sections = vim.deepcopy(sections),
+    inactive_sections = vim.deepcopy(sections),
+
+})
 EOF
