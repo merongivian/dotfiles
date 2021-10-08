@@ -318,6 +318,7 @@ Plug 'vimlab/split-term.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'ray-x/cmp-treesitter'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " search
@@ -417,6 +418,7 @@ cmp.setup({
   sources = {
     { name = "ultisnips" },
     { name = 'nvim_lsp' },
+    { name = 'treesitter' },
     { name = 'buffer',
         opts = {
           get_bufnrs = function()
