@@ -32,6 +32,9 @@ let g:UltiSnipsJumpForwardTrigger="<C-d>"
 "let g:deoplete#enable_at_startup = 1
 "inoremap <expr><C-t>  pumvisible() ? "\<CR>" : "\<C-t>"
 
+" vim tree
+let g:nvim_tree_hide_dotfiles = 1
+
 " hardtime
 let g:hardtime_default_on = 1
 
@@ -234,11 +237,13 @@ filetype off                  " required
 filetype plugin on
 let g:tidal_target = "terminal"
 
+nnoremap - :NvimTreeOpen<CR>
+
 call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -525,4 +530,6 @@ require('lualine').setup({
     inactive_sections = vim.deepcopy(sections),
 
 })
+
+require'nvim-tree'.setup()
 EOF
