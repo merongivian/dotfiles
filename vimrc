@@ -343,6 +343,7 @@ Plug 'shadmansaleh/lualine.nvim' " this is not the original repo (it has not bee
 Plug 'kyazdani42/nvim-web-devicons'
 " tabs
 Plug 'alvarosevilla95/luatab.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 
 call plug#end()
 
@@ -487,6 +488,7 @@ cmp.setup({
 require'lspconfig'.solargraph.setup {
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+require'lspconfig'.denols.setup{}
 -- ----------
 -- ----------
 -- init gitsigns
@@ -500,6 +502,7 @@ vim.opt.list = true
 
 require("indent_blankline").setup {
   show_current_context = true,
+  context_patterns = { 'class', 'module', 'function', 'method', 'block' }
 }
 
 -- ----------
