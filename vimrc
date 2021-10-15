@@ -344,6 +344,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " tabs
 Plug 'alvarosevilla95/luatab.nvim'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 call plug#end()
 
@@ -539,4 +540,23 @@ require('lualine').setup({
 require'nvim-tree'.setup()
 
 vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["ac"] = "@call.outer",
+        ["ic"] = "@call.inner",
+      },
+    },
+  },
+}
 EOF
