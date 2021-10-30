@@ -347,7 +347,9 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " context
 Plug 'romgrk/nvim-treesitter-context'
-
+Plug 'kshenoy/vim-signature'
+" zooming
+Plug 'troydm/zoomwintab.vim'
 
 call plug#end()
 
