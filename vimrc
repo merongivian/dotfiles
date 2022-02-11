@@ -544,7 +544,7 @@ require('lualine').setup({
 
 require'nvim-tree'.setup()
 
-vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+require('luatab').setup()
 
 require'nvim-treesitter.configs'.setup {
   textobjects = {
