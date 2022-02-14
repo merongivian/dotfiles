@@ -449,7 +449,7 @@ cmp.setup({
   -- - <C-space> to expand the selected snippet from completion menu
   mapping = {
     ["<C-Space>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
+      if cmp.visible() then
         if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
           return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
         end
@@ -465,7 +465,7 @@ cmp.setup({
       "s",
     }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
+      if cmp.visible() then
         vim.fn.feedkeys(t("<C-n>"), "n")
       elseif check_back_space() then
         vim.fn.feedkeys(t("<tab>"), "n")
@@ -479,7 +479,7 @@ cmp.setup({
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
         return vim.fn.feedkeys(t("<C-R>=UltiSnips#JumpBackwards()<CR>"))
-      elseif vim.fn.pumvisible() == 1 then
+      elseif cmp.visible() then
         vim.fn.feedkeys(t("<C-p>"), "n")
       else
         fallback()
