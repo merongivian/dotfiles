@@ -434,7 +434,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'treesitter' },
     { name = 'buffer',
-        options = {
+        option = {
           get_bufnrs = function()
             return vim.api.nvim_list_bufs()
           end
@@ -454,7 +454,7 @@ cmp.setup({
           return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
         end
 
-        vim.fn.feedkeys(t("<C-n>"), "n")
+        cmp.select_next_item()
       elseif check_back_space() then
         vim.fn.feedkeys(t("<cr>"), "n")
       else
@@ -466,7 +466,7 @@ cmp.setup({
     }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        vim.fn.feedkeys(t("<C-n>"), "n")
+        cmp.select_next_item()
       elseif check_back_space() then
         vim.fn.feedkeys(t("<tab>"), "n")
       else
@@ -480,7 +480,7 @@ cmp.setup({
       if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
         return vim.fn.feedkeys(t("<C-R>=UltiSnips#JumpBackwards()<CR>"))
       elseif cmp.visible() then
-        vim.fn.feedkeys(t("<C-p>"), "n")
+        cmp.select_next_item()
       else
         fallback()
       end
