@@ -339,7 +339,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Day/night theme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " bottom line
-Plug 'shadmansaleh/lualine.nvim' " this is not the original repo (it has not been updated in a while)
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " tabs
 Plug 'alvarosevilla95/luatab.nvim'
