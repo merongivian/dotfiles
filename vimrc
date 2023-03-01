@@ -116,6 +116,14 @@ nmap <silent> <leader>R :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 "nmap <silent> <leader>g :TestVisit<CR>
 
+"codeium
+let g:codeium_disable_bindings = 1
+imap <script><silent><nowait><expr> <C-t> codeium#Accept()
+
+imap <C-e>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <C-r>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
+
 command! Day :call DayTheme()
 command! Night :call NightTheme()
 command! Storm :call StormTheme()
@@ -350,6 +358,7 @@ Plug 'romgrk/nvim-treesitter-context'
 Plug 'kshenoy/vim-signature'
 " zooming
 Plug 'troydm/zoomwintab.vim'
+Plug 'Exafunction/codeium.vim'
 
 call plug#end()
 
