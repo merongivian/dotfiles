@@ -358,6 +358,10 @@ Plug 'romgrk/nvim-treesitter-context'
 Plug 'kshenoy/vim-signature'
 " zooming
 Plug 'troydm/zoomwintab.vim'
+" AI
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'dpayne/CodeGPT.nvim'
 Plug 'Exafunction/codeium.vim'
 
 call plug#end()
