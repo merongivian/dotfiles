@@ -245,7 +245,7 @@ filetype off                  " required
 filetype plugin on
 let g:tidal_target = "terminal"
 
-nnoremap - :NvimTreeFindFile<CR>
+nnoremap - :NvimTreeOpen<CR>
 
 call plug#begin()
 Plug 'kien/ctrlp.vim'
