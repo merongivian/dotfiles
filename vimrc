@@ -251,7 +251,7 @@ call plug#begin()
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'tpope/vim-vinegar'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -354,7 +354,7 @@ Plug 'alvarosevilla95/luatab.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " context
-Plug 'romgrk/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'kshenoy/vim-signature'
 " zooming
 Plug 'troydm/zoomwintab.vim'
