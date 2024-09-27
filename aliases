@@ -21,7 +21,7 @@ alias greb='git rebase $1'
 alias gsth='git stash'
 alias gsth_pop='git stash pop'
 alias arm='env /usr/bin/arch -arm64 /bin/zsh --login'
-alias intel='env /usr/bin/arch -x84_64 /bin/zsh --login'
+alias intel='env /usr/bin/arch -x86_64 /bin/zsh --login'
 
 alias vi='vim'
 alias vim='nvim'
