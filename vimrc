@@ -343,7 +343,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " indentation lines
 Plug 'lukas-reineke/indent-blankline.nvim'
 " treesiter, install package for language afterwords
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter'
 " Day/night theme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " bottom line
@@ -581,6 +581,15 @@ require'nvim-tree'.setup()
 require('luatab').setup()
 
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "ruby" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
   textobjects = {
     select = {
       enable = true,
