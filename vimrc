@@ -333,6 +333,12 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'ray-x/cmp-treesitter'
 Plug 'hrsh7th/nvim-cmp'
+" this package needs pynvim in order to work, but can not be installed through
+" brew. This forces installation via pip3, perhaps using this is a terrible
+" idea
+" pip3 install 'pynvim @ git+https://github.com/neovim/pynvim' --break-system-packages
+" comments on the issue: https://github.com/orgs/Homebrew/discussions/3404#discussioncomment-8738672
+" blog: https://peterbabic.dev/blog/install-pynvim-via-homebrew/
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " search
 Plug 'BurntSushi/ripgrep', { 'do': 'brew install ripgrep' }
