@@ -365,13 +365,13 @@ Plug 'kshenoy/vim-signature'
 " zooming
 Plug 'troydm/zoomwintab.vim'
 " AI
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
 Plug 'Exafunction/codeium.vim'
 " Popups and fancy command line
 Plug 'folke/noice.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
+" class and methods folding/listing
+Plug 'stevearc/aerial.nvim'
 
 call plug#end()
 
@@ -663,5 +663,19 @@ require("noice").setup({
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = false, -- add a border to hover docs and signature help
   },
+  messages = {
+    enabled = false
+  }
 })
+
+require("aerial").setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    -- vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    -- vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+  end,
+})
+-- You probably also want to set a keymap to toggle aerial
+vim.keymap.set("n", "<C-W>a", "<cmd>AerialToggle!<CR>")
 EOF
