@@ -312,6 +312,8 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
 " class and methods folding/listing
 Plug 'stevearc/aerial.nvim'
+" More icons?
+Plug 'nvim-tree/nvim-web-devicons'
 
 call plug#end()
 
