@@ -6,31 +6,13 @@ let g:lisp_rainbow = 1
 
 let mapleader = "\\"
 
-"nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
-
 let g:session_autosave = 'yes'
 
 let g:neoterm_keep_term_open = 0
 let g:neoterm_size = '10'
 
-"let g:choosewin_overlay_enable = 0
-
-" Supertab config for snippets
-" not sure what this does, consider deleting
-"let g:SuperTabDefaultCompletionType    = '<C-d>'
-"let g:SuperTabCrMapping                = 0
-
-" scroll from top to bottom
-" let g:SuperTabDefaultCompletionType = "<c-n>"
-" Supertab config for snippets
 let g:UltiSnipsExpandTrigger="<C-d>"
 let g:UltiSnipsJumpForwardTrigger="<C-d>"
-"not really using this, but should
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" deoplete
-"let g:deoplete#enable_at_startup = 1
-"inoremap <expr><C-t>  pumvisible() ? "\<CR>" : "\<C-t>"
 
 " vim tree
 let g:nvim_tree_hide_dotfiles = 1
@@ -52,10 +34,6 @@ let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceDefaultMappingKey = "<S-m>"
 let g:CtrlSpaceUseTabline = 1
-
-" rspec fold
-let g:fold_rspec_foldclose = 'all'
-let g:fold_rspec_foldenable = 0
 
 " ctrlp performance
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
@@ -106,15 +84,9 @@ let g:ale_linters = {'ruby': ['ruby']}
 map <silent> <leader>= :execute 'e '. getcwd()<CR>
 map <silent>zd :Bclose!<CR>
 
-"nmap <silent> <leader>q :call neoterm#test#run('current')<CR>
-"nmap <silent> <leader>R :call neoterm#test#run('file')<CR>
-"nmap <silent> <leader>a :call neoterm#test#run('all')<CR>
-"nmap <silent> <leader>l :call neoterm#close_all()<CR>
-
 nmap <silent> <leader>q :TestNearest<CR>
 nmap <silent> <leader>R :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
-"nmap <silent> <leader>g :TestVisit<CR>
 
 "codeium
 let g:codeium_disable_bindings = 1
@@ -132,7 +104,6 @@ command! -nargs=1 Ts :lua require('telescope.builtin').live_grep({default_text =
 tnoremap <Esc> <c-\><c-n>
 vnoremap <leader>gg y:Ts <c-r>"<cr>
 vnoremap <leader>rr y:Ts def <c-r>"<cr>
-"
 
 " copy to clipboard
 map <C-c> "+y <CR>
@@ -148,9 +119,6 @@ if bufwinnr(1)
   map <C-x>h :vertical resize -4<CR>
   map <C-x>l :vertical resize +4<CR>
 endif
-
-" get all files and buffers
-nmap <leader>[ :Unite buffer<CR>
 
 set noswapfile
 
@@ -202,19 +170,6 @@ cnoreabbrev W w
 cnoreabbrev Qa qa
 cnoreabbrev Q q
 
-let g:tagbar_type_ruby = {
-                \ 'kinds' : [
-                    \ 'm:modules',
-                    \ 'c:classes',
-                    \ 'f:methods',
-                    \ 'F:singleton methods',
-                    \ 'C:constants',
-                    \ 'a:aliases'
-                \ ],
-                \ 'ctagsbin':  'ripper-tags',
-                \ 'ctagsargs': ['-f', '-']
-                \ }
-
 augroup sourcesession
         autocmd!
         autocmd VimEnter * nested
@@ -227,8 +182,6 @@ augroup END
 function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
-
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 
 autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
@@ -258,7 +211,6 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
-Plug 'majutsushi/tagbar'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'rking/ag.vim'
 "Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -314,13 +266,11 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'isRuslan/vim-es6'
 Plug 'mhinz/vim-janah'
 Plug 'luochen1990/rainbow'
-Plug 'Shougo/unite.vim'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-hugefile'
 Plug 'janko-m/vim-test'
 " livecoding
 Plug 'merongivian/vim-tidal'
-Plug 'rlue/vim-fold-rspec'
 Plug 'vimlab/split-term.vim'
 " -------------------------------------
 " -------------------------------------
