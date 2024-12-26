@@ -108,10 +108,10 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap <Space> <Plug>(choosewin)
 
 if bufwinnr(1)
-  map <C-x>j <C-W>+4
-  map <C-x>k <C-W>-4
-  map <C-x>h :vertical resize -4<CR>
-  map <C-x>l :vertical resize +4<CR>
+  map <leader>j <C-W>+4
+  map <leader>k <C-W>-4
+  map <leader>h :vertical resize -4<CR>
+  map <leader>l :vertical resize +4<CR>
 endif
 
 set noswapfile
@@ -163,6 +163,7 @@ nmap <C-j> :tabnext<CR>
 cnoreabbrev W w
 cnoreabbrev Qa qa
 cnoreabbrev Q q
+cnoreabbrev Wq wq
 
 augroup sourcesession
         autocmd!
