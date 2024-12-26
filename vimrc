@@ -503,30 +503,35 @@ hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_ex
 
 -- stolen from: https://github.com/hoob3rt/lualine.nvim/issues/335
 -- makes more clear that buffer has not being saved
-local sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch' },
-    lualine_c = {{function()
-      local bg = '#228b22' -- not modified
-      if vim.bo.modified then bg = '#ff4499' -- unsaved
-      elseif not vim.bo.modifiable then bg = '#a70089' end -- readonly
-      vim.cmd('hi! lualine_filename_status guibg='..bg)
-      return '%t %m'
-    end,
-    color = 'lualine_filename_status',
-    }}
-    ,
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress'},
-    lualine_z = { 'location'}
-    }
 
-require('lualine').setup({
-    options = { theme = 'tokyonight' },
-    sections = vim.deepcopy(sections),
-    inactive_sections = vim.deepcopy(sections),
-
-})
+require('lualine').setup {
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        path = 1, -- Relative path
+        color = function()
+          if vim.bo.modified then
+            return { fg = '#ffffff', bg = '#ff4499', gui = 'bold' } -- Red foreground for unsaved
+          end
+        end
+      }
+    },
+  },
+  inactive_sections = {
+    lualine_c = {
+      {
+        'filename',
+        path = 1, -- Relative path
+        color = function()
+          if vim.bo.modified then
+            return { fg = '#ffffff', bg = '#ff4499', gui = 'bold' } -- Red foreground for unsaved
+          end
+        end
+      }
+    },
+  }
+}
 
 require'nvim-tree'.setup()
 
