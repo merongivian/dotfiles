@@ -1,1 +1,5 @@
-/Users/jose/Library/Application Support/com.mitchellh.ghostty/config
+font-family = "DejaVuSansM Nerd Font Mono"
+font-size = 16
+theme = "tokyonight-storm"
+cursor-style = block
+shell-integration-features = no-cursor
