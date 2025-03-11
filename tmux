@@ -35,3 +35,5 @@ bind l select-pane -R
 
 set -g status-bg '#666666'
 set -g status-fg '#aaaaaa'
+
+set -g mouse on
