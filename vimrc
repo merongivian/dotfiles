@@ -1,10 +1,75 @@
 "reaload vim automatically when vimrc has changed
 au BufWritePost .vimrc so $MYVIMRC
 
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
-let g:lisp_rainbow = 1
-
 let mapleader = "\\"
+
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
+
+" copy to clipboard
+map <C-c> "+y <CR>
+map Y y$
+
+set noswapfile
+
+set hlsearch
+set incsearch
+set laststatus=2
+syntax enable
+set number
+set ruler
+set encoding=utf-8
+
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set expandtab!
+set backspace=indent,eol,start
+
+set cursorline
+set cursorcolumn
+
+" List chars
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the left of the screen
+set hidden
+
+au BufNewFile,BufRead *.tex set spelllang=es spell
+au BufNewFile,BufRead *.md set spelllang=en spell
+au BufReadPost *.es6 set syntax=javascript
+
+" remap uppercase error :Qa
+cnoreabbrev W w
+cnoreabbrev Qa qa
+cnoreabbrev Q q
+cnoreabbrev Wq wq
+
+"" insert motion
+nmap <C-a> I
+nmap <C-e> A
+
+" removes trailing spaces
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
+
+autocmd FileWritePre    * :call TrimWhiteSpace()
+autocmd FileAppendPre   * :call TrimWhiteSpace()
+autocmd FilterWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre     * :call TrimWhiteSpace()
+
+tnoremap <Esc> <c-\><c-n>
+
+" weird compatibility config from the 70s that might break some plugins if
+" deleted
+set nocompatible
+filetype off
+
+let g:lisp_rainbow = 1
 
 let g:session_autosave = 'yes'
 
@@ -95,13 +160,8 @@ command! Night :call NightTheme()
 command! Storm :call StormTheme()
 command! -nargs=1 Ts :lua require('telescope.builtin').live_grep({default_text = <q-args>})
 
-tnoremap <Esc> <c-\><c-n>
 vnoremap <leader>gg y:Ts <c-r>"<cr>
 vnoremap <leader>rr y:Ts def <c-r>"<cr>
-
-" copy to clipboard
-map <C-c> "+y <CR>
-map Y y$
 
 vmap <Enter> <Plug>(EasyAlign)
 
@@ -114,44 +174,6 @@ if bufwinnr(1)
   map <leader>l :vertical resize +4<CR>
 endif
 
-set noswapfile
-
-set hlsearch
-set incsearch
-set laststatus=2
-syntax enable
-set number
-set ruler
-set encoding=utf-8
-
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set expandtab!
-set backspace=indent,eol,start
-
-set cursorline
-set cursorcolumn
-
-au BufNewFile,BufRead *.tex set spelllang=es spell
-au BufNewFile,BufRead *.md set spelllang=en spell
-au BufReadPost *.es6 set syntax=javascript
-
-" List chars
-set listchars=""                  " Reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:.            " show trailing spaces as dots
-set listchars+=extends:>          " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
-set listchars+=precedes:<         " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the left of the screen
-
-set hidden
-
-"" insert motion
-nmap <C-a> I
-nmap <C-e> A
-
 "" tab motion
 nmap <C-k> :tabprev<CR>
 nmap <C-j> :tabnext<CR>
@@ -159,32 +181,6 @@ nmap <C-j> :tabnext<CR>
 "nmap <C-h> :tabfirst<CR>
 "nmap <C-l> :tablast<CR>
 
-" remap uppercase error :Qa
-cnoreabbrev W w
-cnoreabbrev Qa qa
-cnoreabbrev Q q
-cnoreabbrev Wq wq
-
-augroup sourcesession
-        autocmd!
-        autocmd VimEnter * nested
-        \ if !argc() && empty(v:this_session) && filereadable('Session.vim') |
-        \   source Session.vim |
-        \ endif
-augroup END
-
-" removes trailing spaces
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
-
-autocmd FileWritePre    * :call TrimWhiteSpace()
-autocmd FileAppendPre   * :call TrimWhiteSpace()
-autocmd FilterWritePre  * :call TrimWhiteSpace()
-autocmd BufWritePre     * :call TrimWhiteSpace()
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
 " tidal
 filetype plugin on
 let g:tidal_target = "terminal"
@@ -211,7 +207,6 @@ Plug 'vim-scripts/camelcasemotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
-Plug 'tpope/vim-obsession'
 "Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-expand-region'
 Plug 'rhysd/clever-f.vim'
@@ -319,7 +314,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 autocmd ColorScheme janah highlight Normal ctermbg=235
-colorscheme tokyonight
+  colorscheme tokyonight
 let g:tokyonight_style = "storm"
 " custom functions
 
