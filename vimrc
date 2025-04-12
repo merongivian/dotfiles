@@ -155,9 +155,6 @@ imap <C-e>   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <C-r>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
-command! Day :call DayTheme()
-command! Night :call NightTheme()
-command! Storm :call StormTheme()
 command! -nargs=1 Ts :lua require('telescope.builtin').live_grep({default_text = <q-args>})
 
 vnoremap <leader>gg y:Ts <c-r>"<cr>
@@ -317,42 +314,6 @@ autocmd ColorScheme janah highlight Normal ctermbg=235
   colorscheme tokyonight
 let g:tokyonight_style = "storm"
 " custom functions
-
-function! DayTheme()
-  " hacky way to reload scheme so i can change the theme if already set
-  " with tokyonight
-  colorscheme jellybeans
-
-  let g:tokyonight_style = "day"
-  let g:tokyonight_italic_functions = 1
-  let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-
-  colorscheme tokyonight
-endfunction
-
-function! NightTheme()
-  " hacky way to reload scheme so i can change the theme if already set
-  " with tokyonight
-  colorscheme jellybeans
-
-  let g:tokyonight_style = "night"
-  let g:tokyonight_italic_functions = 1
-  let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-
-  colorscheme tokyonight
-endfunction
-
-function! StormTheme()
-  " hacky way to reload scheme so i can change the theme if already set
-  " with tokyonight
-  colorscheme jellybeans
-
-  let g:tokyonight_style = "storm"
-  let g:tokyonight_italic_functions = 1
-  let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-
-  colorscheme tokyonight
-endfunction
 
 function! g:ToggleNuMode()
   if &relativenumber == 1
