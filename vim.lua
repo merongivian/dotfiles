@@ -1,22 +1,34 @@
--- LSP with tab completion integrated with ultisnips
+-- LSP with tab completion integrated with luasnips
 local cmp = require("cmp")
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
+
+local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local check_back_space = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
 end
 
+local has_words_before = function()
+  local col = vim.fn.col('.') - 1
+  return col > 0 and vim.fn.getline('.'):sub(col, col):match('%s') == nil
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
-    end,
+      require'luasnip'.lsp_expand(args.body)
+    end
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   sources = {
-    { name = "ultisnips" },
+    { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'treesitter' },
     { name = 'buffer',
@@ -34,46 +46,50 @@ cmp.setup({
   -- - <TAB> to expand snippet when no completion item selected (you don't need to select the snippet from completion item to expand)
   -- - <C-space> to expand the selected snippet from completion menu
   mapping = {
-    ["<C-Space>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-          return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
-        end
-
-        cmp.select_next_item()
-      elseif check_back_space() then
-        vim.fn.feedkeys(t("<cr>"), "n")
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
-      elseif check_back_space() then
-        vim.fn.feedkeys(t("<tab>"), "n")
+        local entry = cmp.get_selected_entry()
+        if entry and entry.source.name == "luasnip" then
+          cmp.confirm({ select = true })  -- expand snippet immediately
+        else
+          cmp.select_next_item()
+        end
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
+
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-        return vim.fn.feedkeys(t("<C-R>=UltiSnips#JumpBackwards()<CR>"))
-      elseif cmp.visible() then
-        cmp.select_next_item()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
+
+    ["<C-Space>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<Down>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ["<Up>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
   },
 })
 

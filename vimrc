@@ -162,7 +162,7 @@ vnoremap <leader>rr y:Ts def <c-r>"<cr>
 
 vmap <Enter> <Plug>(EasyAlign)
 
-nmap <Space> <Plug>(choosewin)
+"nmap <Space> <Plug>(choosewin)
 
 if bufwinnr(1)
   map <leader>j <C-W>+4
@@ -190,7 +190,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'tpope/vim-vinegar'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
@@ -266,13 +265,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'ray-x/cmp-treesitter'
 Plug 'hrsh7th/nvim-cmp'
-" this package needs pynvim in order to work, but can not be installed through
-" brew. This forces installation via pip3, perhaps using this is a terrible
-" idea
-" pip3 install 'pynvim @ git+https://github.com/neovim/pynvim' --break-system-packages
-" comments on the issue: https://github.com/orgs/Homebrew/discussions/3404#discussioncomment-8738672
-" blog: https://peterbabic.dev/blog/install-pynvim-via-homebrew/
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " search
 Plug 'BurntSushi/ripgrep', { 'do': 'brew install ripgrep' }
 Plug 'sharkdp/fd'
@@ -307,14 +299,19 @@ Plug 'rcarriga/nvim-notify'
 Plug 'stevearc/aerial.nvim'
 " More icons?
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
 
 call plug#end()
 
-autocmd ColorScheme janah highlight Normal ctermbg=235
+if !exists('g:vscode')
+  autocmd ColorScheme janah highlight Normal ctermbg=235
   colorscheme tokyonight
-let g:tokyonight_style = "storm"
-" custom functions
+  let g:tokyonight_style = "storm"
+endif
 
+" custom functions
 function! g:ToggleNuMode()
   if &relativenumber == 1
      set norelativenumber
@@ -324,4 +321,6 @@ function! g:ToggleNuMode()
 endfunction
 nnoremap <silent><C-b> :call g:ToggleNuMode()<cr>
 
-lua require('jose.init')
+if !exists('g:vscode')
+  lua require('jose.init')
+endif
