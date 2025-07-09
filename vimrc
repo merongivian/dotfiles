@@ -291,10 +291,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'troydm/zoomwintab.vim'
 " AI
 Plug 'Exafunction/codeium.vim'
-" Popups and fancy command line
-Plug 'folke/noice.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'rcarriga/nvim-notify'
 " class and methods folding/listing
 Plug 'stevearc/aerial.nvim'
 " More icons?
