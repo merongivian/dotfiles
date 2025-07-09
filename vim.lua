@@ -7,11 +7,6 @@ end
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
-end
-
 local has_words_before = function()
   local col = vim.fn.col('.') - 1
   return col > 0 and vim.fn.getline('.'):sub(col, col):match('%s') == nil
@@ -48,16 +43,10 @@ cmp.setup({
   mapping = {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        local entry = cmp.get_selected_entry()
-        if entry and entry.source.name == "luasnip" then
-          cmp.confirm({ select = true })  -- expand snippet immediately
-        else
-          cmp.select_next_item()
-        end
+        -- When the menu is visible, pressing Tab twice confirms/expands
+        cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
-      elseif luasnip.locally_jumpable(1) then
-        luasnip.jump(1)
       elseif has_words_before() then
         cmp.complete()
       else
@@ -88,8 +77,9 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    ["<Down>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+
     ["<Up>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ["<Down>"]   = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
   },
 })
 
