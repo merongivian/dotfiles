@@ -9,6 +9,9 @@ let g:ruby_path = system('echo $HOME/.rbenv/shims')
 map <C-c> "+y <CR>
 map Y y$
 
+" Map <Space> in normal mode to invoke the picker
+nnoremap <silent><Space> :lua require('nvim-window').pick()<CR>
+
 set noswapfile
 
 set hlsearch
@@ -298,6 +301,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
+Plug 'yorickpeterse/nvim-window'
 
 call plug#end()
 

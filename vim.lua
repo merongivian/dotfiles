@@ -1,16 +1,15 @@
--- LSP with tab completion integrated with luasnips
-local cmp = require("cmp")
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
-
-local luasnip = require("luasnip")
-require("luasnip.loaders.from_vscode").lazy_load()
 
 local has_words_before = function()
   local col = vim.fn.col('.') - 1
   return col > 0 and vim.fn.getline('.'):sub(col, col):match('%s') == nil
 end
+
+local cmp = require("cmp")
+local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
   snippet = {
@@ -160,7 +159,7 @@ require('lualine').setup {
   }
 }
 
-require'nvim-tree'.setup()
+require("nvim-tree").setup()
 
 require('luatab').setup()
 
