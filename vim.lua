@@ -49,7 +49,7 @@ cmp.setup({
       elseif has_words_before() then
         cmp.complete()
       else
-        fallback()
+        cmp.select_next_item()
       end
     end, { "i", "s" }),
 
@@ -82,10 +82,14 @@ cmp.setup({
   },
 })
 
-require'lspconfig'.solargraph.setup {
-  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-require'lspconfig'.denols.setup{}
+vim.lsp.config("*", {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(
+    vim.lsp.protocol.make_client_capabilities()
+  )
+})
+vim.lsp.config('solargraph', {})
+vim.lsp.config('denols', {})
+vim.lsp.enable({ 'solargraph', 'denols' })
 -- ----------
 -- ----------
 -- init gitsigns
@@ -163,33 +167,34 @@ require("nvim-tree").setup()
 
 require('luatab').setup()
 
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "ruby" },
+-- treesitter
+-- highlighting
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(details)
+    pcall(vim.treesitter.start, details.buf)
+  end,
+})
+--parsers
+local ts = require('nvim-treesitter')
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+-- Equivalent to your old 'ensure_installed' list
+ts.install({
+  "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "ruby"
+})
+ts.setup({
   auto_install = true,
-
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["ab"] = "@block.outer",
-        ["ib"] = "@block.inner",
-        ["ac"] = "@call.outer",
-        ["ic"] = "@call.inner",
-      },
-    },
+})
+require('nvim-treesitter-textobjects').setup({
+  enable = true,
+  lookahead = true, -- Automatically jump forward to matching textobj
+  keymaps = {
+    ["ab"] = "@block.outer",
+    ["ib"] = "@block.inner",
+    ["ac"] = "@call.outer",
+    ["ic"] = "@call.inner",
   },
-}
+})
+
 
 require'treesitter-context'.setup{
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
