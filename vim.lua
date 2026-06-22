@@ -168,12 +168,15 @@ require("nvim-tree").setup()
 require('luatab').setup()
 
 -- treesitter
--- highlighting
+-- Stop Ruby's legacy runtime maps from stealing 'ab' and 'ib' keys
+vim.g.no_ruby_maps = true
+-- highlighting and indentation
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(details)
     pcall(vim.treesitter.start, details.buf)
   end,
 })
+
 --parsers
 local ts = require('nvim-treesitter')
 
@@ -184,16 +187,34 @@ ts.install({
 ts.setup({
   auto_install = true,
 })
-require('nvim-treesitter-textobjects').setup({
-  enable = true,
-  lookahead = true, -- Automatically jump forward to matching textobj
-  keymaps = {
-    ["ab"] = "@block.outer",
-    ["ib"] = "@block.inner",
-    ["ac"] = "@call.outer",
-    ["ic"] = "@call.inner",
-  },
-})
+
+local textobjects_select = require("nvim-treesitter-textobjects.select")
+
+local custom_textobjects = {
+  -- Methods / Functions
+  ["am"] = "@function.outer",
+  ["im"] = "@function.inner",
+
+  -- Structural Blocks
+  ["ab"] = "@block.outer",
+  ["ib"] = "@block.inner",
+
+  -- Classes
+  ["ac"] = "@class.outer",
+  ["ic"] = "@class.inner",
+
+  -- RSpec
+  ["it"] = "@rspec.it.outer",        -- Selects the entire '' block
+  ["ad"] = "@rspec.describe.outer",
+  ["ac"] = "@rspec.context.outer",
+}
+
+-- Bind the mappings directly to Visual (x) and Operator-pending (o) modes
+for key, query_capture in pairs(custom_textobjects) do
+  vim.keymap.set({"x", "o"}, key, function()
+    textobjects_select.select_textobject(query_capture, "textobjects")
+  end, { desc = "Select " .. query_capture })
+end
 
 require("aerial").setup({
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
